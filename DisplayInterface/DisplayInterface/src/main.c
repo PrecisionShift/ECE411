@@ -80,24 +80,29 @@ int main (void)
 	ioport_init();
 
 	SPI_MasterInit();
-	
+
+	PRR = 0x00;
+
 	ioport_set_pin_dir(BACK_LIGHT, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_dir(TFT_DC, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_dir(TFT_RST, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_dir(TFT_CS, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_dir(CARD_CS, IOPORT_DIR_OUTPUT);
 	
-	//ioport_set_pin_mode(BACK_LIGHT, IOPORT_MODE_PULLDOWN);
+	
 	
 	ioport_set_pin_level(TFT_DC, 0);
-	ioport_set_pin_level(TFT_CS, 1);  // serial interface initializes when CS is high pg 33
+	ioport_set_pin_level(TFT_CS, 0);  // serial interface initializes when CS is high pg 33
 	ioport_set_pin_level(CARD_CS, 1);  // Turn off card 
 
-	ioport_set_pin_level(TFT_RST, 0);
-	_delay_ms(5);
 	ioport_set_pin_level(TFT_RST, 1);
-	_delay_ms(5);
-
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_RST, 0);
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_RST, 1);
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_CS, 1); // active low
+	_delay_ms(500);
 	ioport_set_pin_level(TFT_CS, 0); // active low
 	ioport_set_pin_level(TFT_DC, 0); // active low
 
@@ -127,7 +132,7 @@ int main (void)
 	transmitByte = 0x2d;  // write command
 	SPI_MasterTransmit(transmitByte); // Sen byte
 	ioport_set_pin_level(TFT_DC, 1);
-
+	//ioport_set_pin_mode(TFT_CS, IOPORT_MODE_PULLDOWN);
 	for(int i = 0; i <= 0x0f; i++) // Red part1
 	{
 		transmitByte = i;
@@ -161,7 +166,7 @@ int main (void)
 
 	ioport_set_pin_level(TFT_DC, 0);
 	transmitByte = 0x2c;  // write command
-	SPI_MasterTransmit(transmitByte); // Sen byte
+	SPI_MasterTransmit(transmitByte); // Send byte
 	ioport_set_pin_level(TFT_DC, 1);
 	
 	for (int i = 0; i <= 8192; i++) // once for every three bytes
@@ -186,13 +191,9 @@ int main (void)
 				//LED_Off(LED0);
 			}else{
 				//LED_On(LED0);
-				// Turns on display (-:
-				
+				// Turns on back light :-)
 				ioport_set_pin_mode(BACK_LIGHT, IOPORT_MODE_PULLUP);
-			//ioport_set_pin_level(TFT_DC, 0);
-			//transmitBit = 0x01;
-			//SPI_MasterTransmit(transmitBit);
 			}
-			}
-			return 0;
+		}
+	return 0;
 }

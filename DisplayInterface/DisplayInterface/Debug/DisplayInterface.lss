@@ -1,0 +1,2623 @@
+
+DisplayInterface.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000f1e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000eca  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000f1e  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000f50  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000040  00000000  00000000  00000f90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000011b0  00000000  00000000  00000fd0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000009a5  00000000  00000000  00002180  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000102f  00000000  00000000  00002b25  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000154  00000000  00000000  00003b54  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0001011c  00000000  00000000  00003ca8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000284  00000000  00000000  00013dc4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_macro  00003d68  00000000  00000000  00014048  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	33 c0       	rjmp	.+102    	; 0x68 <__ctors_end>
+   2:	00 00       	nop
+   4:	39 c0       	rjmp	.+114    	; 0x78 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	37 c0       	rjmp	.+110    	; 0x78 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	35 c0       	rjmp	.+106    	; 0x78 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	33 c0       	rjmp	.+102    	; 0x78 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	31 c0       	rjmp	.+98     	; 0x78 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	2f c0       	rjmp	.+94     	; 0x78 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	2d c0       	rjmp	.+90     	; 0x78 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	2b c0       	rjmp	.+86     	; 0x78 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	29 c0       	rjmp	.+82     	; 0x78 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	27 c0       	rjmp	.+78     	; 0x78 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	25 c0       	rjmp	.+74     	; 0x78 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	23 c0       	rjmp	.+70     	; 0x78 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	21 c0       	rjmp	.+66     	; 0x78 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	1f c0       	rjmp	.+62     	; 0x78 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	1d c0       	rjmp	.+58     	; 0x78 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	1b c0       	rjmp	.+54     	; 0x78 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	19 c0       	rjmp	.+50     	; 0x78 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	17 c0       	rjmp	.+46     	; 0x78 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	15 c0       	rjmp	.+42     	; 0x78 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	13 c0       	rjmp	.+38     	; 0x78 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	11 c0       	rjmp	.+34     	; 0x78 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	0f c0       	rjmp	.+30     	; 0x78 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	0d c0       	rjmp	.+26     	; 0x78 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	0b c0       	rjmp	.+22     	; 0x78 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	09 c0       	rjmp	.+18     	; 0x78 <__bad_interrupt>
+	...
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	1b d3       	rcall	.+1590   	; 0x6ac <main>
+  76:	27 c7       	rjmp	.+3662   	; 0xec6 <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	c3 cf       	rjmp	.-122    	; 0x0 <__vectors>
+
+0000007a <board_init>:
+#include <conf_board.h>
+#include "gpio.h"
+#include "led.h"
+
+void board_init(void)
+{
+  7a:	cf 93       	push	r28
+  7c:	df 93       	push	r29
+  7e:	cd b7       	in	r28, 0x3d	; 61
+  80:	de b7       	in	r29, 0x3e	; 62
+  82:	6a 97       	sbiw	r28, 0x1a	; 26
+  84:	0f b6       	in	r0, 0x3f	; 63
+  86:	f8 94       	cli
+  88:	de bf       	out	0x3e, r29	; 62
+  8a:	0f be       	out	0x3f, r0	; 63
+  8c:	cd bf       	out	0x3d, r28	; 61
+  8e:	8d e0       	ldi	r24, 0x0D	; 13
+  90:	89 83       	std	Y+1, r24	; 0x01
+  92:	83 e0       	ldi	r24, 0x03	; 3
+  94:	90 e0       	ldi	r25, 0x00	; 0
+  96:	9b 83       	std	Y+3, r25	; 0x03
+  98:	8a 83       	std	Y+2, r24	; 0x02
+ * parameters.
+ */
+__always_inline static inline void ioport_configure_pin(port_pin_t pin,
+		port_pin_flags_t flags)
+{
+	ioport_configure_port_pin(arch_ioport_pin_to_base(pin),
+  9a:	89 81       	ldd	r24, Y+1	; 0x01
+  9c:	88 2f       	mov	r24, r24
+  9e:	90 e0       	ldi	r25, 0x00	; 0
+  a0:	9d 83       	std	Y+5, r25	; 0x05
+  a2:	8c 83       	std	Y+4, r24	; 0x04
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+  a4:	8c 81       	ldd	r24, Y+4	; 0x04
+  a6:	9d 81       	ldd	r25, Y+5	; 0x05
+  a8:	9c 01       	movw	r18, r24
+  aa:	27 70       	andi	r18, 0x07	; 7
+  ac:	33 27       	eor	r19, r19
+  ae:	81 e0       	ldi	r24, 0x01	; 1
+  b0:	90 e0       	ldi	r25, 0x00	; 0
+  b2:	02 c0       	rjmp	.+4      	; 0xb8 <board_init+0x3e>
+  b4:	88 0f       	add	r24, r24
+  b6:	99 1f       	adc	r25, r25
+  b8:	2a 95       	dec	r18
+  ba:	e2 f7       	brpl	.-8      	; 0xb4 <board_init+0x3a>
+  bc:	48 2f       	mov	r20, r24
+ * parameters.
+ */
+__always_inline static inline void ioport_configure_pin(port_pin_t pin,
+		port_pin_flags_t flags)
+{
+	ioport_configure_port_pin(arch_ioport_pin_to_base(pin),
+  be:	89 81       	ldd	r24, Y+1	; 0x01
+  c0:	88 2f       	mov	r24, r24
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	9f 83       	std	Y+7, r25	; 0x07
+  c6:	8e 83       	std	Y+6, r24	; 0x06
+ * \brief: To get the base address of port number from defined pin
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static PORT_t *arch_ioport_pin_to_base(ioport_pin_t pin)
+{
+	return arch_ioport_port_to_base(pin >> 3);
+  c8:	8e 81       	ldd	r24, Y+6	; 0x06
+  ca:	9f 81       	ldd	r25, Y+7	; 0x07
+  cc:	96 95       	lsr	r25
+  ce:	87 95       	ror	r24
+  d0:	96 95       	lsr	r25
+  d2:	87 95       	ror	r24
+  d4:	96 95       	lsr	r25
+  d6:	87 95       	ror	r24
+  d8:	88 87       	std	Y+8, r24	; 0x08
+	if (port >= IOPORT_PORTH) {
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS_H  + ((port - IOPORT_PORTH) * IOPORT_PORT_OFFSET)));	
+	} else 
+#endif
+	{
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS + (port * IOPORT_PORT_OFFSET)));
+  da:	88 85       	ldd	r24, Y+8	; 0x08
+  dc:	28 2f       	mov	r18, r24
+  de:	30 e0       	ldi	r19, 0x00	; 0
+  e0:	c9 01       	movw	r24, r18
+  e2:	88 0f       	add	r24, r24
+  e4:	99 1f       	adc	r25, r25
+  e6:	82 0f       	add	r24, r18
+  e8:	93 1f       	adc	r25, r19
+  ea:	80 96       	adiw	r24, 0x20	; 32
+  ec:	9a 87       	std	Y+10, r25	; 0x0a
+  ee:	89 87       	std	Y+9, r24	; 0x09
+  f0:	4b 87       	std	Y+11, r20	; 0x0b
+  f2:	8a 81       	ldd	r24, Y+2	; 0x02
+  f4:	9b 81       	ldd	r25, Y+3	; 0x03
+  f6:	9d 87       	std	Y+13, r25	; 0x0d
+  f8:	8c 87       	std	Y+12, r24	; 0x0c
+__always_inline static inline void ioport_configure_port_pin(void *port,
+		pin_mask_t pin_mask,
+		port_pin_flags_t flags)
+{
+	/* Select direction and initial pin state */
+	if (flags & IOPORT_DIR_OUTPUT) {
+  fa:	8c 85       	ldd	r24, Y+12	; 0x0c
+  fc:	9d 85       	ldd	r25, Y+13	; 0x0d
+  fe:	81 70       	andi	r24, 0x01	; 1
+ 100:	99 27       	eor	r25, r25
+ 102:	89 2b       	or	r24, r25
+ 104:	89 f1       	breq	.+98     	; 0x168 <board_init+0xee>
+		if (flags & IOPORT_INIT_HIGH) {
+ 106:	8c 85       	ldd	r24, Y+12	; 0x0c
+ 108:	9d 85       	ldd	r25, Y+13	; 0x0d
+ 10a:	82 70       	andi	r24, 0x02	; 2
+ 10c:	99 27       	eor	r25, r25
+ 10e:	89 2b       	or	r24, r25
+ 110:	71 f0       	breq	.+28     	; 0x12e <board_init+0xb4>
+			*((uint8_t *)port + 2) |= pin_mask;
+ 112:	89 85       	ldd	r24, Y+9	; 0x09
+ 114:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 116:	02 96       	adiw	r24, 0x02	; 2
+ 118:	29 85       	ldd	r18, Y+9	; 0x09
+ 11a:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 11c:	2e 5f       	subi	r18, 0xFE	; 254
+ 11e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 120:	f9 01       	movw	r30, r18
+ 122:	30 81       	ld	r19, Z
+ 124:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 126:	23 2b       	or	r18, r19
+ 128:	fc 01       	movw	r30, r24
+ 12a:	20 83       	st	Z, r18
+ 12c:	0f c0       	rjmp	.+30     	; 0x14c <board_init+0xd2>
+		} else {
+			*((uint8_t *)port + 2) &= ~pin_mask;
+ 12e:	89 85       	ldd	r24, Y+9	; 0x09
+ 130:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 132:	02 96       	adiw	r24, 0x02	; 2
+ 134:	29 85       	ldd	r18, Y+9	; 0x09
+ 136:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 138:	2e 5f       	subi	r18, 0xFE	; 254
+ 13a:	3f 4f       	sbci	r19, 0xFF	; 255
+ 13c:	f9 01       	movw	r30, r18
+ 13e:	20 81       	ld	r18, Z
+ 140:	32 2f       	mov	r19, r18
+ 142:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 144:	20 95       	com	r18
+ 146:	23 23       	and	r18, r19
+ 148:	fc 01       	movw	r30, r24
+ 14a:	20 83       	st	Z, r18
+		}
+
+		*((uint8_t *)port + 1) |= pin_mask;
+ 14c:	89 85       	ldd	r24, Y+9	; 0x09
+ 14e:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 150:	01 96       	adiw	r24, 0x01	; 1
+ 152:	29 85       	ldd	r18, Y+9	; 0x09
+ 154:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 156:	2f 5f       	subi	r18, 0xFF	; 255
+ 158:	3f 4f       	sbci	r19, 0xFF	; 255
+ 15a:	f9 01       	movw	r30, r18
+ 15c:	30 81       	ld	r19, Z
+ 15e:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 160:	23 2b       	or	r18, r19
+ 162:	fc 01       	movw	r30, r24
+ 164:	20 83       	st	Z, r18
+ 166:	32 c0       	rjmp	.+100    	; 0x1cc <board_init+0x152>
+	} else {
+		*((uint8_t *)port + 1) &= ~pin_mask;
+ 168:	89 85       	ldd	r24, Y+9	; 0x09
+ 16a:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 16c:	01 96       	adiw	r24, 0x01	; 1
+ 16e:	29 85       	ldd	r18, Y+9	; 0x09
+ 170:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 172:	2f 5f       	subi	r18, 0xFF	; 255
+ 174:	3f 4f       	sbci	r19, 0xFF	; 255
+ 176:	f9 01       	movw	r30, r18
+ 178:	20 81       	ld	r18, Z
+ 17a:	32 2f       	mov	r19, r18
+ 17c:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 17e:	20 95       	com	r18
+ 180:	23 23       	and	r18, r19
+ 182:	fc 01       	movw	r30, r24
+ 184:	20 83       	st	Z, r18
+		if (flags & IOPORT_PULL_UP) {
+ 186:	8c 85       	ldd	r24, Y+12	; 0x0c
+ 188:	9d 85       	ldd	r25, Y+13	; 0x0d
+ 18a:	84 70       	andi	r24, 0x04	; 4
+ 18c:	99 27       	eor	r25, r25
+ 18e:	89 2b       	or	r24, r25
+ 190:	71 f0       	breq	.+28     	; 0x1ae <board_init+0x134>
+			*((uint8_t *)port + 2) |= pin_mask;
+ 192:	89 85       	ldd	r24, Y+9	; 0x09
+ 194:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 196:	02 96       	adiw	r24, 0x02	; 2
+ 198:	29 85       	ldd	r18, Y+9	; 0x09
+ 19a:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 19c:	2e 5f       	subi	r18, 0xFE	; 254
+ 19e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1a0:	f9 01       	movw	r30, r18
+ 1a2:	30 81       	ld	r19, Z
+ 1a4:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 1a6:	23 2b       	or	r18, r19
+ 1a8:	fc 01       	movw	r30, r24
+ 1aa:	20 83       	st	Z, r18
+ 1ac:	0f c0       	rjmp	.+30     	; 0x1cc <board_init+0x152>
+		} else {
+			*((uint8_t *)port + 2) &= ~pin_mask;
+ 1ae:	89 85       	ldd	r24, Y+9	; 0x09
+ 1b0:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 1b2:	02 96       	adiw	r24, 0x02	; 2
+ 1b4:	29 85       	ldd	r18, Y+9	; 0x09
+ 1b6:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 1b8:	2e 5f       	subi	r18, 0xFE	; 254
+ 1ba:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1bc:	f9 01       	movw	r30, r18
+ 1be:	20 81       	ld	r18, Z
+ 1c0:	32 2f       	mov	r19, r18
+ 1c2:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 1c4:	20 95       	com	r18
+ 1c6:	23 23       	and	r18, r19
+ 1c8:	fc 01       	movw	r30, r24
+ 1ca:	20 83       	st	Z, r18
+ 1cc:	8f e0       	ldi	r24, 0x0F	; 15
+ 1ce:	8e 87       	std	Y+14, r24	; 0x0e
+ 1d0:	84 e0       	ldi	r24, 0x04	; 4
+ 1d2:	90 e0       	ldi	r25, 0x00	; 0
+ 1d4:	98 8b       	std	Y+16, r25	; 0x10
+ 1d6:	8f 87       	std	Y+15, r24	; 0x0f
+ * parameters.
+ */
+__always_inline static inline void ioport_configure_pin(port_pin_t pin,
+		port_pin_flags_t flags)
+{
+	ioport_configure_port_pin(arch_ioport_pin_to_base(pin),
+ 1d8:	8e 85       	ldd	r24, Y+14	; 0x0e
+ 1da:	88 2f       	mov	r24, r24
+ 1dc:	90 e0       	ldi	r25, 0x00	; 0
+ 1de:	9a 8b       	std	Y+18, r25	; 0x12
+ 1e0:	89 8b       	std	Y+17, r24	; 0x11
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 1e2:	89 89       	ldd	r24, Y+17	; 0x11
+ 1e4:	9a 89       	ldd	r25, Y+18	; 0x12
+ 1e6:	9c 01       	movw	r18, r24
+ 1e8:	27 70       	andi	r18, 0x07	; 7
+ 1ea:	33 27       	eor	r19, r19
+ 1ec:	81 e0       	ldi	r24, 0x01	; 1
+ 1ee:	90 e0       	ldi	r25, 0x00	; 0
+ 1f0:	02 c0       	rjmp	.+4      	; 0x1f6 <board_init+0x17c>
+ 1f2:	88 0f       	add	r24, r24
+ 1f4:	99 1f       	adc	r25, r25
+ 1f6:	2a 95       	dec	r18
+ 1f8:	e2 f7       	brpl	.-8      	; 0x1f2 <board_init+0x178>
+ 1fa:	48 2f       	mov	r20, r24
+ * parameters.
+ */
+__always_inline static inline void ioport_configure_pin(port_pin_t pin,
+		port_pin_flags_t flags)
+{
+	ioport_configure_port_pin(arch_ioport_pin_to_base(pin),
+ 1fc:	8e 85       	ldd	r24, Y+14	; 0x0e
+ 1fe:	88 2f       	mov	r24, r24
+ 200:	90 e0       	ldi	r25, 0x00	; 0
+ 202:	9c 8b       	std	Y+20, r25	; 0x14
+ 204:	8b 8b       	std	Y+19, r24	; 0x13
+ * \brief: To get the base address of port number from defined pin
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static PORT_t *arch_ioport_pin_to_base(ioport_pin_t pin)
+{
+	return arch_ioport_port_to_base(pin >> 3);
+ 206:	8b 89       	ldd	r24, Y+19	; 0x13
+ 208:	9c 89       	ldd	r25, Y+20	; 0x14
+ 20a:	96 95       	lsr	r25
+ 20c:	87 95       	ror	r24
+ 20e:	96 95       	lsr	r25
+ 210:	87 95       	ror	r24
+ 212:	96 95       	lsr	r25
+ 214:	87 95       	ror	r24
+ 216:	8d 8b       	std	Y+21, r24	; 0x15
+	if (port >= IOPORT_PORTH) {
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS_H  + ((port - IOPORT_PORTH) * IOPORT_PORT_OFFSET)));	
+	} else 
+#endif
+	{
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS + (port * IOPORT_PORT_OFFSET)));
+ 218:	8d 89       	ldd	r24, Y+21	; 0x15
+ 21a:	28 2f       	mov	r18, r24
+ 21c:	30 e0       	ldi	r19, 0x00	; 0
+ 21e:	c9 01       	movw	r24, r18
+ 220:	88 0f       	add	r24, r24
+ 222:	99 1f       	adc	r25, r25
+ 224:	82 0f       	add	r24, r18
+ 226:	93 1f       	adc	r25, r19
+ 228:	80 96       	adiw	r24, 0x20	; 32
+ 22a:	9f 8b       	std	Y+23, r25	; 0x17
+ 22c:	8e 8b       	std	Y+22, r24	; 0x16
+ 22e:	48 8f       	std	Y+24, r20	; 0x18
+ 230:	8f 85       	ldd	r24, Y+15	; 0x0f
+ 232:	98 89       	ldd	r25, Y+16	; 0x10
+ 234:	9a 8f       	std	Y+26, r25	; 0x1a
+ 236:	89 8f       	std	Y+25, r24	; 0x19
+__always_inline static inline void ioport_configure_port_pin(void *port,
+		pin_mask_t pin_mask,
+		port_pin_flags_t flags)
+{
+	/* Select direction and initial pin state */
+	if (flags & IOPORT_DIR_OUTPUT) {
+ 238:	89 8d       	ldd	r24, Y+25	; 0x19
+ 23a:	9a 8d       	ldd	r25, Y+26	; 0x1a
+ 23c:	81 70       	andi	r24, 0x01	; 1
+ 23e:	99 27       	eor	r25, r25
+ 240:	89 2b       	or	r24, r25
+ 242:	89 f1       	breq	.+98     	; 0x2a6 <board_init+0x22c>
+		if (flags & IOPORT_INIT_HIGH) {
+ 244:	89 8d       	ldd	r24, Y+25	; 0x19
+ 246:	9a 8d       	ldd	r25, Y+26	; 0x1a
+ 248:	82 70       	andi	r24, 0x02	; 2
+ 24a:	99 27       	eor	r25, r25
+ 24c:	89 2b       	or	r24, r25
+ 24e:	71 f0       	breq	.+28     	; 0x26c <board_init+0x1f2>
+			*((uint8_t *)port + 2) |= pin_mask;
+ 250:	8e 89       	ldd	r24, Y+22	; 0x16
+ 252:	9f 89       	ldd	r25, Y+23	; 0x17
+ 254:	02 96       	adiw	r24, 0x02	; 2
+ 256:	2e 89       	ldd	r18, Y+22	; 0x16
+ 258:	3f 89       	ldd	r19, Y+23	; 0x17
+ 25a:	2e 5f       	subi	r18, 0xFE	; 254
+ 25c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 25e:	f9 01       	movw	r30, r18
+ 260:	30 81       	ld	r19, Z
+ 262:	28 8d       	ldd	r18, Y+24	; 0x18
+ 264:	23 2b       	or	r18, r19
+ 266:	fc 01       	movw	r30, r24
+ 268:	20 83       	st	Z, r18
+ 26a:	0f c0       	rjmp	.+30     	; 0x28a <board_init+0x210>
+		} else {
+			*((uint8_t *)port + 2) &= ~pin_mask;
+ 26c:	8e 89       	ldd	r24, Y+22	; 0x16
+ 26e:	9f 89       	ldd	r25, Y+23	; 0x17
+ 270:	02 96       	adiw	r24, 0x02	; 2
+ 272:	2e 89       	ldd	r18, Y+22	; 0x16
+ 274:	3f 89       	ldd	r19, Y+23	; 0x17
+ 276:	2e 5f       	subi	r18, 0xFE	; 254
+ 278:	3f 4f       	sbci	r19, 0xFF	; 255
+ 27a:	f9 01       	movw	r30, r18
+ 27c:	20 81       	ld	r18, Z
+ 27e:	32 2f       	mov	r19, r18
+ 280:	28 8d       	ldd	r18, Y+24	; 0x18
+ 282:	20 95       	com	r18
+ 284:	23 23       	and	r18, r19
+ 286:	fc 01       	movw	r30, r24
+ 288:	20 83       	st	Z, r18
+		}
+
+		*((uint8_t *)port + 1) |= pin_mask;
+ 28a:	8e 89       	ldd	r24, Y+22	; 0x16
+ 28c:	9f 89       	ldd	r25, Y+23	; 0x17
+ 28e:	01 96       	adiw	r24, 0x01	; 1
+ 290:	2e 89       	ldd	r18, Y+22	; 0x16
+ 292:	3f 89       	ldd	r19, Y+23	; 0x17
+ 294:	2f 5f       	subi	r18, 0xFF	; 255
+ 296:	3f 4f       	sbci	r19, 0xFF	; 255
+ 298:	f9 01       	movw	r30, r18
+ 29a:	30 81       	ld	r19, Z
+ 29c:	28 8d       	ldd	r18, Y+24	; 0x18
+ 29e:	23 2b       	or	r18, r19
+ 2a0:	fc 01       	movw	r30, r24
+ 2a2:	20 83       	st	Z, r18
+ 2a4:	32 c0       	rjmp	.+100    	; 0x30a <board_init+0x290>
+	} else {
+		*((uint8_t *)port + 1) &= ~pin_mask;
+ 2a6:	8e 89       	ldd	r24, Y+22	; 0x16
+ 2a8:	9f 89       	ldd	r25, Y+23	; 0x17
+ 2aa:	01 96       	adiw	r24, 0x01	; 1
+ 2ac:	2e 89       	ldd	r18, Y+22	; 0x16
+ 2ae:	3f 89       	ldd	r19, Y+23	; 0x17
+ 2b0:	2f 5f       	subi	r18, 0xFF	; 255
+ 2b2:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2b4:	f9 01       	movw	r30, r18
+ 2b6:	20 81       	ld	r18, Z
+ 2b8:	32 2f       	mov	r19, r18
+ 2ba:	28 8d       	ldd	r18, Y+24	; 0x18
+ 2bc:	20 95       	com	r18
+ 2be:	23 23       	and	r18, r19
+ 2c0:	fc 01       	movw	r30, r24
+ 2c2:	20 83       	st	Z, r18
+		if (flags & IOPORT_PULL_UP) {
+ 2c4:	89 8d       	ldd	r24, Y+25	; 0x19
+ 2c6:	9a 8d       	ldd	r25, Y+26	; 0x1a
+ 2c8:	84 70       	andi	r24, 0x04	; 4
+ 2ca:	99 27       	eor	r25, r25
+ 2cc:	89 2b       	or	r24, r25
+ 2ce:	71 f0       	breq	.+28     	; 0x2ec <board_init+0x272>
+			*((uint8_t *)port + 2) |= pin_mask;
+ 2d0:	8e 89       	ldd	r24, Y+22	; 0x16
+ 2d2:	9f 89       	ldd	r25, Y+23	; 0x17
+ 2d4:	02 96       	adiw	r24, 0x02	; 2
+ 2d6:	2e 89       	ldd	r18, Y+22	; 0x16
+ 2d8:	3f 89       	ldd	r19, Y+23	; 0x17
+ 2da:	2e 5f       	subi	r18, 0xFE	; 254
+ 2dc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2de:	f9 01       	movw	r30, r18
+ 2e0:	30 81       	ld	r19, Z
+ 2e2:	28 8d       	ldd	r18, Y+24	; 0x18
+ 2e4:	23 2b       	or	r18, r19
+ 2e6:	fc 01       	movw	r30, r24
+ 2e8:	20 83       	st	Z, r18
+ 2ea:	0f c0       	rjmp	.+30     	; 0x30a <board_init+0x290>
+		} else {
+			*((uint8_t *)port + 2) &= ~pin_mask;
+ 2ec:	8e 89       	ldd	r24, Y+22	; 0x16
+ 2ee:	9f 89       	ldd	r25, Y+23	; 0x17
+ 2f0:	02 96       	adiw	r24, 0x02	; 2
+ 2f2:	2e 89       	ldd	r18, Y+22	; 0x16
+ 2f4:	3f 89       	ldd	r19, Y+23	; 0x17
+ 2f6:	2e 5f       	subi	r18, 0xFE	; 254
+ 2f8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2fa:	f9 01       	movw	r30, r18
+ 2fc:	20 81       	ld	r18, Z
+ 2fe:	32 2f       	mov	r19, r18
+ 300:	28 8d       	ldd	r18, Y+24	; 0x18
+ 302:	20 95       	com	r18
+ 304:	23 23       	and	r18, r19
+ 306:	fc 01       	movw	r30, r24
+ 308:	20 83       	st	Z, r18
+	ioport_configure_pin(LED0, IOPORT_DIR_OUTPUT |  IOPORT_INIT_HIGH);
+
+	/* On board Switch initialization */
+	ioport_configure_pin(GPIO_PUSH_BUTTON_0,
+	IOPORT_DIR_INPUT | IOPORT_PULL_UP);
+}
+ 30a:	6a 96       	adiw	r28, 0x1a	; 26
+ 30c:	0f b6       	in	r0, 0x3f	; 63
+ 30e:	f8 94       	cli
+ 310:	de bf       	out	0x3e, r29	; 62
+ 312:	0f be       	out	0x3f, r0	; 63
+ 314:	cd bf       	out	0x3d, r28	; 61
+ 316:	df 91       	pop	r29
+ 318:	cf 91       	pop	r28
+ 31a:	08 95       	ret
+
+0000031c <ioport_init>:
+ *
+ * This function must be called before using any other functions in the IOPORT
+ * service.
+ */
+static inline void ioport_init(void)
+{
+ 31c:	cf 93       	push	r28
+ 31e:	df 93       	push	r29
+ 320:	cd b7       	in	r28, 0x3d	; 61
+ 322:	de b7       	in	r29, 0x3e	; 62
+	arch_ioport_init();
+}
+ 324:	df 91       	pop	r29
+ 326:	cf 91       	pop	r28
+ 328:	08 95       	ret
+
+0000032a <ioport_set_pin_mode>:
+ *
+ * \param pin IOPORT pin to configure
+ * \param mode Mode masks to configure for the specified pin (\ref ioport_modes)
+ */
+static inline void ioport_set_pin_mode(ioport_pin_t pin, ioport_mode_t mode)
+{
+ 32a:	cf 93       	push	r28
+ 32c:	df 93       	push	r29
+ 32e:	cd b7       	in	r28, 0x3d	; 61
+ 330:	de b7       	in	r29, 0x3e	; 62
+ 332:	2f 97       	sbiw	r28, 0x0f	; 15
+ 334:	0f b6       	in	r0, 0x3f	; 63
+ 336:	f8 94       	cli
+ 338:	de bf       	out	0x3e, r29	; 62
+ 33a:	0f be       	out	0x3f, r0	; 63
+ 33c:	cd bf       	out	0x3d, r28	; 61
+ 33e:	9e 87       	std	Y+14, r25	; 0x0e
+ 340:	8d 87       	std	Y+13, r24	; 0x0d
+ 342:	6f 87       	std	Y+15, r22	; 0x0f
+ 344:	8d 85       	ldd	r24, Y+13	; 0x0d
+ 346:	9e 85       	ldd	r25, Y+14	; 0x0e
+ 348:	9a 83       	std	Y+2, r25	; 0x02
+ 34a:	89 83       	std	Y+1, r24	; 0x01
+ 34c:	8f 85       	ldd	r24, Y+15	; 0x0f
+ 34e:	8b 83       	std	Y+3, r24	; 0x03
+ 350:	89 81       	ldd	r24, Y+1	; 0x01
+ 352:	9a 81       	ldd	r25, Y+2	; 0x02
+ 354:	9d 83       	std	Y+5, r25	; 0x05
+ 356:	8c 83       	std	Y+4, r24	; 0x04
+ * \brief: To get the base address of port number from defined pin
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static PORT_t *arch_ioport_pin_to_base(ioport_pin_t pin)
+{
+	return arch_ioport_port_to_base(pin >> 3);
+ 358:	8c 81       	ldd	r24, Y+4	; 0x04
+ 35a:	9d 81       	ldd	r25, Y+5	; 0x05
+ 35c:	96 95       	lsr	r25
+ 35e:	87 95       	ror	r24
+ 360:	96 95       	lsr	r25
+ 362:	87 95       	ror	r24
+ 364:	96 95       	lsr	r25
+ 366:	87 95       	ror	r24
+ 368:	8e 83       	std	Y+6, r24	; 0x06
+	if (port >= IOPORT_PORTH) {
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS_H  + ((port - IOPORT_PORTH) * IOPORT_PORT_OFFSET)));	
+	} else 
+#endif
+	{
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS + (port * IOPORT_PORT_OFFSET)));
+ 36a:	8e 81       	ldd	r24, Y+6	; 0x06
+ 36c:	28 2f       	mov	r18, r24
+ 36e:	30 e0       	ldi	r19, 0x00	; 0
+ 370:	c9 01       	movw	r24, r18
+ 372:	88 0f       	add	r24, r24
+ 374:	99 1f       	adc	r25, r25
+ 376:	82 0f       	add	r24, r18
+ 378:	93 1f       	adc	r25, r19
+ 37a:	80 96       	adiw	r24, 0x20	; 32
+ */
+__always_inline static void arch_ioport_set_pin_mode(ioport_pin_t pin,
+		ioport_mode_t mode)
+{
+#ifdef MEGA_RF
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+ 37c:	98 87       	std	Y+8, r25	; 0x08
+ 37e:	8f 83       	std	Y+7, r24	; 0x07
+ 380:	89 81       	ldd	r24, Y+1	; 0x01
+ 382:	9a 81       	ldd	r25, Y+2	; 0x02
+ 384:	9a 87       	std	Y+10, r25	; 0x0a
+ 386:	89 87       	std	Y+9, r24	; 0x09
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 388:	89 85       	ldd	r24, Y+9	; 0x09
+ 38a:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 38c:	9c 01       	movw	r18, r24
+ 38e:	27 70       	andi	r18, 0x07	; 7
+ 390:	33 27       	eor	r19, r19
+ 392:	81 e0       	ldi	r24, 0x01	; 1
+ 394:	90 e0       	ldi	r25, 0x00	; 0
+ 396:	02 c0       	rjmp	.+4      	; 0x39c <ioport_set_pin_mode+0x72>
+ 398:	88 0f       	add	r24, r24
+ 39a:	99 1f       	adc	r25, r25
+ 39c:	2a 95       	dec	r18
+ 39e:	e2 f7       	brpl	.-8      	; 0x398 <ioport_set_pin_mode+0x6e>
+__always_inline static void arch_ioport_set_pin_mode(ioport_pin_t pin,
+		ioport_mode_t mode)
+{
+#ifdef MEGA_RF
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+	ioport_pin_t mask_pin = arch_ioport_pin_to_mask(pin);
+ 3a0:	88 2f       	mov	r24, r24
+ 3a2:	90 e0       	ldi	r25, 0x00	; 0
+ 3a4:	9c 87       	std	Y+12, r25	; 0x0c
+ 3a6:	8b 87       	std	Y+11, r24	; 0x0b
+	if (mode == IOPORT_MODE_PULLUP) {
+ 3a8:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3aa:	88 23       	and	r24, r24
+ 3ac:	61 f4       	brne	.+24     	; 0x3c6 <ioport_set_pin_mode+0x9c>
+		base->PORTDATA |=  mask_pin;
+ 3ae:	8f 81       	ldd	r24, Y+7	; 0x07
+ 3b0:	98 85       	ldd	r25, Y+8	; 0x08
+ 3b2:	fc 01       	movw	r30, r24
+ 3b4:	92 81       	ldd	r25, Z+2	; 0x02
+ 3b6:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3b8:	29 2f       	mov	r18, r25
+ 3ba:	28 2b       	or	r18, r24
+ 3bc:	8f 81       	ldd	r24, Y+7	; 0x07
+ 3be:	98 85       	ldd	r25, Y+8	; 0x08
+ 3c0:	fc 01       	movw	r30, r24
+ 3c2:	22 83       	std	Z+2, r18	; 0x02
+ 3c4:	0f c0       	rjmp	.+30     	; 0x3e4 <ioport_set_pin_mode+0xba>
+	} else if (mode == IOPORT_MODE_PULLDOWN) {
+ 3c6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3c8:	81 30       	cpi	r24, 0x01	; 1
+ 3ca:	61 f4       	brne	.+24     	; 0x3e4 <ioport_set_pin_mode+0xba>
+		base->PORTDATA &= ~mask_pin;
+ 3cc:	8f 81       	ldd	r24, Y+7	; 0x07
+ 3ce:	98 85       	ldd	r25, Y+8	; 0x08
+ 3d0:	fc 01       	movw	r30, r24
+ 3d2:	92 81       	ldd	r25, Z+2	; 0x02
+ 3d4:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3d6:	80 95       	com	r24
+ 3d8:	29 2f       	mov	r18, r25
+ 3da:	28 23       	and	r18, r24
+ 3dc:	8f 81       	ldd	r24, Y+7	; 0x07
+ 3de:	98 85       	ldd	r25, Y+8	; 0x08
+ 3e0:	fc 01       	movw	r30, r24
+ 3e2:	22 83       	std	Z+2, r18	; 0x02
+	arch_ioport_set_pin_mode(pin, mode);
+}
+ 3e4:	2f 96       	adiw	r28, 0x0f	; 15
+ 3e6:	0f b6       	in	r0, 0x3f	; 63
+ 3e8:	f8 94       	cli
+ 3ea:	de bf       	out	0x3e, r29	; 62
+ 3ec:	0f be       	out	0x3f, r0	; 63
+ 3ee:	cd bf       	out	0x3d, r28	; 61
+ 3f0:	df 91       	pop	r29
+ 3f2:	cf 91       	pop	r28
+ 3f4:	08 95       	ret
+
+000003f6 <ioport_set_pin_dir>:
+ * \param pin IOPORT pin to configure
+ * \param dir Direction to set for the specified pin (\ref ioport_direction)
+ */
+static inline void ioport_set_pin_dir(ioport_pin_t pin,
+		enum ioport_direction dir)
+{
+ 3f6:	cf 93       	push	r28
+ 3f8:	df 93       	push	r29
+ 3fa:	cd b7       	in	r28, 0x3d	; 61
+ 3fc:	de b7       	in	r29, 0x3e	; 62
+ 3fe:	61 97       	sbiw	r28, 0x11	; 17
+ 400:	0f b6       	in	r0, 0x3f	; 63
+ 402:	f8 94       	cli
+ 404:	de bf       	out	0x3e, r29	; 62
+ 406:	0f be       	out	0x3f, r0	; 63
+ 408:	cd bf       	out	0x3d, r28	; 61
+ 40a:	9f 87       	std	Y+15, r25	; 0x0f
+ 40c:	8e 87       	std	Y+14, r24	; 0x0e
+ 40e:	79 8b       	std	Y+17, r23	; 0x11
+ 410:	68 8b       	std	Y+16, r22	; 0x10
+ 412:	8e 85       	ldd	r24, Y+14	; 0x0e
+ 414:	9f 85       	ldd	r25, Y+15	; 0x0f
+ 416:	9a 83       	std	Y+2, r25	; 0x02
+ 418:	89 83       	std	Y+1, r24	; 0x01
+ 41a:	88 89       	ldd	r24, Y+16	; 0x10
+ 41c:	99 89       	ldd	r25, Y+17	; 0x11
+ 41e:	9c 83       	std	Y+4, r25	; 0x04
+ 420:	8b 83       	std	Y+3, r24	; 0x03
+ 422:	89 81       	ldd	r24, Y+1	; 0x01
+ 424:	9a 81       	ldd	r25, Y+2	; 0x02
+ 426:	9e 83       	std	Y+6, r25	; 0x06
+ 428:	8d 83       	std	Y+5, r24	; 0x05
+ * \brief: To get the base address of port number from defined pin
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static PORT_t *arch_ioport_pin_to_base(ioport_pin_t pin)
+{
+	return arch_ioport_port_to_base(pin >> 3);
+ 42a:	8d 81       	ldd	r24, Y+5	; 0x05
+ 42c:	9e 81       	ldd	r25, Y+6	; 0x06
+ 42e:	96 95       	lsr	r25
+ 430:	87 95       	ror	r24
+ 432:	96 95       	lsr	r25
+ 434:	87 95       	ror	r24
+ 436:	96 95       	lsr	r25
+ 438:	87 95       	ror	r24
+ 43a:	8f 83       	std	Y+7, r24	; 0x07
+	if (port >= IOPORT_PORTH) {
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS_H  + ((port - IOPORT_PORTH) * IOPORT_PORT_OFFSET)));	
+	} else 
+#endif
+	{
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS + (port * IOPORT_PORT_OFFSET)));
+ 43c:	8f 81       	ldd	r24, Y+7	; 0x07
+ 43e:	28 2f       	mov	r18, r24
+ 440:	30 e0       	ldi	r19, 0x00	; 0
+ 442:	c9 01       	movw	r24, r18
+ 444:	88 0f       	add	r24, r24
+ 446:	99 1f       	adc	r25, r25
+ 448:	82 0f       	add	r24, r18
+ 44a:	93 1f       	adc	r25, r19
+ 44c:	80 96       	adiw	r24, 0x20	; 32
+ * \param mode dir, \refer ioport_direction
+ */
+__always_inline static void arch_ioport_set_pin_dir(ioport_pin_t pin,
+		enum ioport_direction dir)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+ 44e:	99 87       	std	Y+9, r25	; 0x09
+ 450:	88 87       	std	Y+8, r24	; 0x08
+
+	if (dir == IOPORT_DIR_OUTPUT) {
+ 452:	8b 81       	ldd	r24, Y+3	; 0x03
+ 454:	9c 81       	ldd	r25, Y+4	; 0x04
+ 456:	01 97       	sbiw	r24, 0x01	; 1
+ 458:	d9 f4       	brne	.+54     	; 0x490 <__LOCK_REGION_LENGTH__+0x90>
+ 45a:	89 81       	ldd	r24, Y+1	; 0x01
+ 45c:	9a 81       	ldd	r25, Y+2	; 0x02
+ 45e:	9b 87       	std	Y+11, r25	; 0x0b
+ 460:	8a 87       	std	Y+10, r24	; 0x0a
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 462:	8a 85       	ldd	r24, Y+10	; 0x0a
+ 464:	9b 85       	ldd	r25, Y+11	; 0x0b
+ 466:	9c 01       	movw	r18, r24
+ 468:	27 70       	andi	r18, 0x07	; 7
+ 46a:	33 27       	eor	r19, r19
+ 46c:	81 e0       	ldi	r24, 0x01	; 1
+ 46e:	90 e0       	ldi	r25, 0x00	; 0
+ 470:	02 c0       	rjmp	.+4      	; 0x476 <__LOCK_REGION_LENGTH__+0x76>
+ 472:	88 0f       	add	r24, r24
+ 474:	99 1f       	adc	r25, r25
+ 476:	2a 95       	dec	r18
+ 478:	e2 f7       	brpl	.-8      	; 0x472 <__LOCK_REGION_LENGTH__+0x72>
+ 47a:	28 2f       	mov	r18, r24
+		enum ioport_direction dir)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (dir == IOPORT_DIR_OUTPUT) {
+		base->DIR |= arch_ioport_pin_to_mask(pin);
+ 47c:	88 85       	ldd	r24, Y+8	; 0x08
+ 47e:	99 85       	ldd	r25, Y+9	; 0x09
+ 480:	fc 01       	movw	r30, r24
+ 482:	81 81       	ldd	r24, Z+1	; 0x01
+ 484:	28 2b       	or	r18, r24
+ 486:	88 85       	ldd	r24, Y+8	; 0x08
+ 488:	99 85       	ldd	r25, Y+9	; 0x09
+ 48a:	fc 01       	movw	r30, r24
+ 48c:	21 83       	std	Z+1, r18	; 0x01
+ 48e:	25 c0       	rjmp	.+74     	; 0x4da <__LOCK_REGION_LENGTH__+0xda>
+	} else if (dir == IOPORT_DIR_INPUT) {
+ 490:	8b 81       	ldd	r24, Y+3	; 0x03
+ 492:	9c 81       	ldd	r25, Y+4	; 0x04
+ 494:	89 2b       	or	r24, r25
+ 496:	09 f5       	brne	.+66     	; 0x4da <__LOCK_REGION_LENGTH__+0xda>
+ 498:	89 81       	ldd	r24, Y+1	; 0x01
+ 49a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 49c:	9d 87       	std	Y+13, r25	; 0x0d
+ 49e:	8c 87       	std	Y+12, r24	; 0x0c
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 4a0:	8c 85       	ldd	r24, Y+12	; 0x0c
+ 4a2:	9d 85       	ldd	r25, Y+13	; 0x0d
+ 4a4:	9c 01       	movw	r18, r24
+ 4a6:	27 70       	andi	r18, 0x07	; 7
+ 4a8:	33 27       	eor	r19, r19
+ 4aa:	81 e0       	ldi	r24, 0x01	; 1
+ 4ac:	90 e0       	ldi	r25, 0x00	; 0
+ 4ae:	02 c0       	rjmp	.+4      	; 0x4b4 <__LOCK_REGION_LENGTH__+0xb4>
+ 4b0:	88 0f       	add	r24, r24
+ 4b2:	99 1f       	adc	r25, r25
+ 4b4:	2a 95       	dec	r18
+ 4b6:	e2 f7       	brpl	.-8      	; 0x4b0 <__LOCK_REGION_LENGTH__+0xb0>
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (dir == IOPORT_DIR_OUTPUT) {
+		base->DIR |= arch_ioport_pin_to_mask(pin);
+	} else if (dir == IOPORT_DIR_INPUT) {
+		base->DIR &=  ~arch_ioport_pin_to_mask(pin);
+ 4b8:	88 2f       	mov	r24, r24
+ 4ba:	90 e0       	ldi	r25, 0x00	; 0
+ 4bc:	9c 01       	movw	r18, r24
+ 4be:	20 95       	com	r18
+ 4c0:	30 95       	com	r19
+ 4c2:	88 85       	ldd	r24, Y+8	; 0x08
+ 4c4:	99 85       	ldd	r25, Y+9	; 0x09
+ 4c6:	fc 01       	movw	r30, r24
+ 4c8:	81 81       	ldd	r24, Z+1	; 0x01
+ 4ca:	98 2f       	mov	r25, r24
+ 4cc:	82 2f       	mov	r24, r18
+ 4ce:	89 23       	and	r24, r25
+ 4d0:	28 2f       	mov	r18, r24
+ 4d2:	88 85       	ldd	r24, Y+8	; 0x08
+ 4d4:	99 85       	ldd	r25, Y+9	; 0x09
+ 4d6:	fc 01       	movw	r30, r24
+ 4d8:	21 83       	std	Z+1, r18	; 0x01
+	arch_ioport_set_pin_dir(pin, dir);
+}
+ 4da:	61 96       	adiw	r28, 0x11	; 17
+ 4dc:	0f b6       	in	r0, 0x3f	; 63
+ 4de:	f8 94       	cli
+ 4e0:	de bf       	out	0x3e, r29	; 62
+ 4e2:	0f be       	out	0x3f, r0	; 63
+ 4e4:	cd bf       	out	0x3d, r28	; 61
+ 4e6:	df 91       	pop	r29
+ 4e8:	cf 91       	pop	r28
+ 4ea:	08 95       	ret
+
+000004ec <ioport_set_pin_level>:
+ *
+ * \param pin IOPORT pin to configure
+ * \param level Logical value of the pin
+ */
+static inline void ioport_set_pin_level(ioport_pin_t pin, bool level)
+{
+ 4ec:	cf 93       	push	r28
+ 4ee:	df 93       	push	r29
+ 4f0:	cd b7       	in	r28, 0x3d	; 61
+ 4f2:	de b7       	in	r29, 0x3e	; 62
+ 4f4:	2d 97       	sbiw	r28, 0x0d	; 13
+ 4f6:	0f b6       	in	r0, 0x3f	; 63
+ 4f8:	f8 94       	cli
+ 4fa:	de bf       	out	0x3e, r29	; 62
+ 4fc:	0f be       	out	0x3f, r0	; 63
+ 4fe:	cd bf       	out	0x3d, r28	; 61
+ 500:	9c 87       	std	Y+12, r25	; 0x0c
+ 502:	8b 87       	std	Y+11, r24	; 0x0b
+ 504:	6d 87       	std	Y+13, r22	; 0x0d
+ 506:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 508:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 50a:	9a 83       	std	Y+2, r25	; 0x02
+ 50c:	89 83       	std	Y+1, r24	; 0x01
+ 50e:	8d 85       	ldd	r24, Y+13	; 0x0d
+ 510:	8b 83       	std	Y+3, r24	; 0x03
+ * \param: level high/low
+ */
+__always_inline static void arch_ioport_set_pin_level(ioport_pin_t pin,
+		bool level)
+{
+	PORT_t *base_add = arch_ioport_port_to_base(pin >> 3);
+ 512:	89 81       	ldd	r24, Y+1	; 0x01
+ 514:	9a 81       	ldd	r25, Y+2	; 0x02
+ 516:	96 95       	lsr	r25
+ 518:	87 95       	ror	r24
+ 51a:	96 95       	lsr	r25
+ 51c:	87 95       	ror	r24
+ 51e:	96 95       	lsr	r25
+ 520:	87 95       	ror	r24
+ 522:	8c 83       	std	Y+4, r24	; 0x04
+	if (port >= IOPORT_PORTH) {
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS_H  + ((port - IOPORT_PORTH) * IOPORT_PORT_OFFSET)));	
+	} else 
+#endif
+	{
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS + (port * IOPORT_PORT_OFFSET)));
+ 524:	8c 81       	ldd	r24, Y+4	; 0x04
+ 526:	28 2f       	mov	r18, r24
+ 528:	30 e0       	ldi	r19, 0x00	; 0
+ 52a:	c9 01       	movw	r24, r18
+ 52c:	88 0f       	add	r24, r24
+ 52e:	99 1f       	adc	r25, r25
+ 530:	82 0f       	add	r24, r18
+ 532:	93 1f       	adc	r25, r19
+ 534:	80 96       	adiw	r24, 0x20	; 32
+ * \param: level high/low
+ */
+__always_inline static void arch_ioport_set_pin_level(ioport_pin_t pin,
+		bool level)
+{
+	PORT_t *base_add = arch_ioport_port_to_base(pin >> 3);
+ 536:	9e 83       	std	Y+6, r25	; 0x06
+ 538:	8d 83       	std	Y+5, r24	; 0x05
+
+	if (level) {
+ 53a:	8b 81       	ldd	r24, Y+3	; 0x03
+ 53c:	88 23       	and	r24, r24
+ 53e:	d9 f0       	breq	.+54     	; 0x576 <ioport_set_pin_level+0x8a>
+		base_add->PORTDATA
+			= (base_add->PORTDATA  | arch_ioport_pin_to_mask
+ 540:	8d 81       	ldd	r24, Y+5	; 0x05
+ 542:	9e 81       	ldd	r25, Y+6	; 0x06
+ 544:	fc 01       	movw	r30, r24
+ 546:	42 81       	ldd	r20, Z+2	; 0x02
+ 548:	89 81       	ldd	r24, Y+1	; 0x01
+ 54a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 54c:	98 87       	std	Y+8, r25	; 0x08
+ 54e:	8f 83       	std	Y+7, r24	; 0x07
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 550:	8f 81       	ldd	r24, Y+7	; 0x07
+ 552:	98 85       	ldd	r25, Y+8	; 0x08
+ 554:	9c 01       	movw	r18, r24
+ 556:	27 70       	andi	r18, 0x07	; 7
+ 558:	33 27       	eor	r19, r19
+ 55a:	81 e0       	ldi	r24, 0x01	; 1
+ 55c:	90 e0       	ldi	r25, 0x00	; 0
+ 55e:	02 c0       	rjmp	.+4      	; 0x564 <ioport_set_pin_level+0x78>
+ 560:	88 0f       	add	r24, r24
+ 562:	99 1f       	adc	r25, r25
+ 564:	2a 95       	dec	r18
+ 566:	e2 f7       	brpl	.-8      	; 0x560 <ioport_set_pin_level+0x74>
+{
+	PORT_t *base_add = arch_ioport_port_to_base(pin >> 3);
+
+	if (level) {
+		base_add->PORTDATA
+			= (base_add->PORTDATA  | arch_ioport_pin_to_mask
+ 568:	24 2f       	mov	r18, r20
+ 56a:	28 2b       	or	r18, r24
+ 56c:	8d 81       	ldd	r24, Y+5	; 0x05
+ 56e:	9e 81       	ldd	r25, Y+6	; 0x06
+ 570:	fc 01       	movw	r30, r24
+ 572:	22 83       	std	Z+2, r18	; 0x02
+ 574:	1c c0       	rjmp	.+56     	; 0x5ae <ioport_set_pin_level+0xc2>
+					(pin));
+	} else {
+		base_add->PORTDATA
+			= (base_add->PORTDATA  & (~arch_ioport_pin_to_mask
+ 576:	8d 81       	ldd	r24, Y+5	; 0x05
+ 578:	9e 81       	ldd	r25, Y+6	; 0x06
+ 57a:	fc 01       	movw	r30, r24
+ 57c:	82 81       	ldd	r24, Z+2	; 0x02
+ 57e:	48 2f       	mov	r20, r24
+ 580:	89 81       	ldd	r24, Y+1	; 0x01
+ 582:	9a 81       	ldd	r25, Y+2	; 0x02
+ 584:	9a 87       	std	Y+10, r25	; 0x0a
+ 586:	89 87       	std	Y+9, r24	; 0x09
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 588:	89 85       	ldd	r24, Y+9	; 0x09
+ 58a:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 58c:	9c 01       	movw	r18, r24
+ 58e:	27 70       	andi	r18, 0x07	; 7
+ 590:	33 27       	eor	r19, r19
+ 592:	81 e0       	ldi	r24, 0x01	; 1
+ 594:	90 e0       	ldi	r25, 0x00	; 0
+ 596:	02 c0       	rjmp	.+4      	; 0x59c <ioport_set_pin_level+0xb0>
+ 598:	88 0f       	add	r24, r24
+ 59a:	99 1f       	adc	r25, r25
+ 59c:	2a 95       	dec	r18
+ 59e:	e2 f7       	brpl	.-8      	; 0x598 <ioport_set_pin_level+0xac>
+		base_add->PORTDATA
+			= (base_add->PORTDATA  | arch_ioport_pin_to_mask
+					(pin));
+	} else {
+		base_add->PORTDATA
+			= (base_add->PORTDATA  & (~arch_ioport_pin_to_mask
+ 5a0:	80 95       	com	r24
+ 5a2:	84 23       	and	r24, r20
+ 5a4:	28 2f       	mov	r18, r24
+ 5a6:	8d 81       	ldd	r24, Y+5	; 0x05
+ 5a8:	9e 81       	ldd	r25, Y+6	; 0x06
+ 5aa:	fc 01       	movw	r30, r24
+ 5ac:	22 83       	std	Z+2, r18	; 0x02
+	arch_ioport_set_pin_level(pin, level);
+}
+ 5ae:	2d 96       	adiw	r28, 0x0d	; 13
+ 5b0:	0f b6       	in	r0, 0x3f	; 63
+ 5b2:	f8 94       	cli
+ 5b4:	de bf       	out	0x3e, r29	; 62
+ 5b6:	0f be       	out	0x3f, r0	; 63
+ 5b8:	cd bf       	out	0x3d, r28	; 61
+ 5ba:	df 91       	pop	r29
+ 5bc:	cf 91       	pop	r28
+ 5be:	08 95       	ret
+
+000005c0 <ioport_get_pin_level>:
+ *
+ * \param pin IOPORT pin to read
+ * \return Current logical value of the specified pin
+ */
+static inline bool ioport_get_pin_level(ioport_pin_t pin)
+{
+ 5c0:	cf 93       	push	r28
+ 5c2:	df 93       	push	r29
+ 5c4:	cd b7       	in	r28, 0x3d	; 61
+ 5c6:	de b7       	in	r29, 0x3e	; 62
+ 5c8:	2b 97       	sbiw	r28, 0x0b	; 11
+ 5ca:	0f b6       	in	r0, 0x3f	; 63
+ 5cc:	f8 94       	cli
+ 5ce:	de bf       	out	0x3e, r29	; 62
+ 5d0:	0f be       	out	0x3f, r0	; 63
+ 5d2:	cd bf       	out	0x3d, r28	; 61
+ 5d4:	9b 87       	std	Y+11, r25	; 0x0b
+ 5d6:	8a 87       	std	Y+10, r24	; 0x0a
+ 5d8:	8a 85       	ldd	r24, Y+10	; 0x0a
+ 5da:	9b 85       	ldd	r25, Y+11	; 0x0b
+ 5dc:	9a 83       	std	Y+2, r25	; 0x02
+ 5de:	89 83       	std	Y+1, r24	; 0x01
+ 5e0:	89 81       	ldd	r24, Y+1	; 0x01
+ 5e2:	9a 81       	ldd	r25, Y+2	; 0x02
+ 5e4:	9c 83       	std	Y+4, r25	; 0x04
+ 5e6:	8b 83       	std	Y+3, r24	; 0x03
+ * \brief: To get the base address of port number from defined pin
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static PORT_t *arch_ioport_pin_to_base(ioport_pin_t pin)
+{
+	return arch_ioport_port_to_base(pin >> 3);
+ 5e8:	8b 81       	ldd	r24, Y+3	; 0x03
+ 5ea:	9c 81       	ldd	r25, Y+4	; 0x04
+ 5ec:	96 95       	lsr	r25
+ 5ee:	87 95       	ror	r24
+ 5f0:	96 95       	lsr	r25
+ 5f2:	87 95       	ror	r24
+ 5f4:	96 95       	lsr	r25
+ 5f6:	87 95       	ror	r24
+ 5f8:	8d 83       	std	Y+5, r24	; 0x05
+	if (port >= IOPORT_PORTH) {
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS_H  + ((port - IOPORT_PORTH) * IOPORT_PORT_OFFSET)));	
+	} else 
+#endif
+	{
+	    return (PORT_t *)((uintptr_t)(IOPORT_BASE_ADDRESS + (port * IOPORT_PORT_OFFSET)));
+ 5fa:	8d 81       	ldd	r24, Y+5	; 0x05
+ 5fc:	28 2f       	mov	r18, r24
+ 5fe:	30 e0       	ldi	r19, 0x00	; 0
+ 600:	c9 01       	movw	r24, r18
+ 602:	88 0f       	add	r24, r24
+ 604:	99 1f       	adc	r25, r25
+ 606:	82 0f       	add	r24, r18
+ 608:	93 1f       	adc	r25, r19
+ 60a:	80 96       	adiw	r24, 0x20	; 32
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ * \return: level high/low
+ */
+__always_inline static bool arch_ioport_get_pin_level(ioport_pin_t pin)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+ 60c:	9f 83       	std	Y+7, r25	; 0x07
+ 60e:	8e 83       	std	Y+6, r24	; 0x06
+	return base->PINCRL & arch_ioport_pin_to_mask(pin);
+ 610:	8e 81       	ldd	r24, Y+6	; 0x06
+ 612:	9f 81       	ldd	r25, Y+7	; 0x07
+ 614:	fc 01       	movw	r30, r24
+ 616:	40 81       	ld	r20, Z
+ 618:	89 81       	ldd	r24, Y+1	; 0x01
+ 61a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 61c:	99 87       	std	Y+9, r25	; 0x09
+ 61e:	88 87       	std	Y+8, r24	; 0x08
+ * \param: pin. the pin number defined by IOPORT_CREATE_PIN
+ */
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask
+	(ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 620:	88 85       	ldd	r24, Y+8	; 0x08
+ 622:	99 85       	ldd	r25, Y+9	; 0x09
+ 624:	9c 01       	movw	r18, r24
+ 626:	27 70       	andi	r18, 0x07	; 7
+ 628:	33 27       	eor	r19, r19
+ 62a:	81 e0       	ldi	r24, 0x01	; 1
+ 62c:	90 e0       	ldi	r25, 0x00	; 0
+ 62e:	02 c0       	rjmp	.+4      	; 0x634 <ioport_get_pin_level+0x74>
+ 630:	88 0f       	add	r24, r24
+ 632:	99 1f       	adc	r25, r25
+ 634:	2a 95       	dec	r18
+ 636:	e2 f7       	brpl	.-8      	; 0x630 <ioport_get_pin_level+0x70>
+ * \return: level high/low
+ */
+__always_inline static bool arch_ioport_get_pin_level(ioport_pin_t pin)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+	return base->PINCRL & arch_ioport_pin_to_mask(pin);
+ 638:	94 2f       	mov	r25, r20
+ 63a:	98 23       	and	r25, r24
+ 63c:	81 e0       	ldi	r24, 0x01	; 1
+ 63e:	99 23       	and	r25, r25
+ 640:	09 f4       	brne	.+2      	; 0x644 <ioport_get_pin_level+0x84>
+ 642:	80 e0       	ldi	r24, 0x00	; 0
+	return arch_ioport_get_pin_level(pin);
+}
+ 644:	2b 96       	adiw	r28, 0x0b	; 11
+ 646:	0f b6       	in	r0, 0x3f	; 63
+ 648:	f8 94       	cli
+ 64a:	de bf       	out	0x3e, r29	; 62
+ 64c:	0f be       	out	0x3f, r0	; 63
+ 64e:	cd bf       	out	0x3d, r28	; 61
+ 650:	df 91       	pop	r29
+ 652:	cf 91       	pop	r28
+ 654:	08 95       	ret
+
+00000656 <SPI_MasterInit>:
+
+
+
+// From page 218 of data sheet
+void SPI_MasterInit(void)
+{
+ 656:	cf 93       	push	r28
+ 658:	df 93       	push	r29
+ 65a:	cd b7       	in	r28, 0x3d	; 61
+ 65c:	de b7       	in	r29, 0x3e	; 62
+	/* Set MOSI and SCK output, all others input */
+	DDRB = (1<<DDB3)|(1<<DDB5);//|(1<<DDB2); // modified to make SS output
+ 65e:	84 e2       	ldi	r24, 0x24	; 36
+ 660:	90 e0       	ldi	r25, 0x00	; 0
+ 662:	28 e2       	ldi	r18, 0x28	; 40
+ 664:	fc 01       	movw	r30, r24
+ 666:	20 83       	st	Z, r18
+	
+	// To prevent it from getting pulled out of Master mode
+	ioport_set_pin_mode(SS_PIN, IOPORT_MODE_PULLUP);
+ 668:	60 e0       	ldi	r22, 0x00	; 0
+ 66a:	8a e0       	ldi	r24, 0x0A	; 10
+ 66c:	90 e0       	ldi	r25, 0x00	; 0
+ 66e:	5d de       	rcall	.-838    	; 0x32a <ioport_set_pin_mode>
+	
+	/* Enable SPI, Master, set clock rate fck/16 */
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+ 670:	8c e4       	ldi	r24, 0x4C	; 76
+ 672:	90 e0       	ldi	r25, 0x00	; 0
+ 674:	21 e5       	ldi	r18, 0x51	; 81
+ 676:	fc 01       	movw	r30, r24
+ 678:	20 83       	st	Z, r18
+}
+ 67a:	df 91       	pop	r29
+ 67c:	cf 91       	pop	r28
+ 67e:	08 95       	ret
+
+00000680 <SPI_MasterTransmit>:
+
+// from page 218 of data sheet
+void SPI_MasterTransmit(uint8_t cData)
+{
+ 680:	cf 93       	push	r28
+ 682:	df 93       	push	r29
+ 684:	1f 92       	push	r1
+ 686:	cd b7       	in	r28, 0x3d	; 61
+ 688:	de b7       	in	r29, 0x3e	; 62
+ 68a:	89 83       	std	Y+1, r24	; 0x01
+	
+	/* Start transmission */
+	SPDR = cData;
+ 68c:	8e e4       	ldi	r24, 0x4E	; 78
+ 68e:	90 e0       	ldi	r25, 0x00	; 0
+ 690:	29 81       	ldd	r18, Y+1	; 0x01
+ 692:	fc 01       	movw	r30, r24
+ 694:	20 83       	st	Z, r18
+	/* Wait for transmission complete */
+	while(!(SPSR & (1<<SPIF)))
+ 696:	00 00       	nop
+ 698:	8d e4       	ldi	r24, 0x4D	; 77
+ 69a:	90 e0       	ldi	r25, 0x00	; 0
+ 69c:	fc 01       	movw	r30, r24
+ 69e:	80 81       	ld	r24, Z
+ 6a0:	88 23       	and	r24, r24
+ 6a2:	d4 f7       	brge	.-12     	; 0x698 <SPI_MasterTransmit+0x18>
+	;
+}
+ 6a4:	0f 90       	pop	r0
+ 6a6:	df 91       	pop	r29
+ 6a8:	cf 91       	pop	r28
+ 6aa:	08 95       	ret
+
+000006ac <main>:
+
+
+int main (void)
+{
+ 6ac:	0f 93       	push	r16
+ 6ae:	1f 93       	push	r17
+ 6b0:	cf 93       	push	r28
+ 6b2:	df 93       	push	r29
+ 6b4:	cd b7       	in	r28, 0x3d	; 61
+ 6b6:	de b7       	in	r29, 0x3e	; 62
+ 6b8:	c8 54       	subi	r28, 0x48	; 72
+ 6ba:	d0 46       	sbci	r29, 0x60	; 96
+ 6bc:	0f b6       	in	r0, 0x3f	; 63
+ 6be:	f8 94       	cli
+ 6c0:	de bf       	out	0x3e, r29	; 62
+ 6c2:	0f be       	out	0x3f, r0	; 63
+ 6c4:	cd bf       	out	0x3d, r28	; 61
+	
+	
+	uint8_t transmitByte;
+	uint8_t display[24576];
+	
+	board_init();
+ 6c6:	d9 dc       	rcall	.-1614   	; 0x7a <board_init>
+	ioport_init();
+ 6c8:	29 de       	rcall	.-942    	; 0x31c <ioport_init>
+
+	SPI_MasterInit();
+ 6ca:	c5 df       	rcall	.-118    	; 0x656 <SPI_MasterInit>
+
+	PRR = 0x00;
+ 6cc:	84 e6       	ldi	r24, 0x64	; 100
+ 6ce:	90 e0       	ldi	r25, 0x00	; 0
+ 6d0:	fc 01       	movw	r30, r24
+ 6d2:	10 82       	st	Z, r1
+
+	ioport_set_pin_dir(BACK_LIGHT, IOPORT_DIR_OUTPUT);
+ 6d4:	61 e0       	ldi	r22, 0x01	; 1
+ 6d6:	70 e0       	ldi	r23, 0x00	; 0
+ 6d8:	89 e0       	ldi	r24, 0x09	; 9
+ 6da:	90 e0       	ldi	r25, 0x00	; 0
+ 6dc:	8c de       	rcall	.-744    	; 0x3f6 <ioport_set_pin_dir>
+	ioport_set_pin_dir(TFT_DC, IOPORT_DIR_OUTPUT);
+ 6de:	61 e0       	ldi	r22, 0x01	; 1
+ 6e0:	70 e0       	ldi	r23, 0x00	; 0
+ 6e2:	88 e0       	ldi	r24, 0x08	; 8
+ 6e4:	90 e0       	ldi	r25, 0x00	; 0
+ 6e6:	87 de       	rcall	.-754    	; 0x3f6 <ioport_set_pin_dir>
+	ioport_set_pin_dir(TFT_RST, IOPORT_DIR_OUTPUT);
+ 6e8:	61 e0       	ldi	r22, 0x01	; 1
+ 6ea:	70 e0       	ldi	r23, 0x00	; 0
+ 6ec:	8f e1       	ldi	r24, 0x1F	; 31
+ 6ee:	90 e0       	ldi	r25, 0x00	; 0
+ 6f0:	82 de       	rcall	.-764    	; 0x3f6 <ioport_set_pin_dir>
+	ioport_set_pin_dir(TFT_CS, IOPORT_DIR_OUTPUT);
+ 6f2:	61 e0       	ldi	r22, 0x01	; 1
+ 6f4:	70 e0       	ldi	r23, 0x00	; 0
+ 6f6:	8e e1       	ldi	r24, 0x1E	; 30
+ 6f8:	90 e0       	ldi	r25, 0x00	; 0
+ 6fa:	7d de       	rcall	.-774    	; 0x3f6 <ioport_set_pin_dir>
+	ioport_set_pin_dir(CARD_CS, IOPORT_DIR_OUTPUT);
+ 6fc:	61 e0       	ldi	r22, 0x01	; 1
+ 6fe:	70 e0       	ldi	r23, 0x00	; 0
+ 700:	8d e1       	ldi	r24, 0x1D	; 29
+ 702:	90 e0       	ldi	r25, 0x00	; 0
+ 704:	78 de       	rcall	.-784    	; 0x3f6 <ioport_set_pin_dir>
+	
+	
+	
+	ioport_set_pin_level(TFT_DC, 0);
+ 706:	60 e0       	ldi	r22, 0x00	; 0
+ 708:	88 e0       	ldi	r24, 0x08	; 8
+ 70a:	90 e0       	ldi	r25, 0x00	; 0
+ 70c:	ef de       	rcall	.-546    	; 0x4ec <ioport_set_pin_level>
+	ioport_set_pin_level(TFT_CS, 0);  // serial interface initializes when CS is high pg 33
+ 70e:	60 e0       	ldi	r22, 0x00	; 0
+ 710:	8e e1       	ldi	r24, 0x1E	; 30
+ 712:	90 e0       	ldi	r25, 0x00	; 0
+ 714:	eb de       	rcall	.-554    	; 0x4ec <ioport_set_pin_level>
+	ioport_set_pin_level(CARD_CS, 1);  // Turn off card 
+ 716:	61 e0       	ldi	r22, 0x01	; 1
+ 718:	8d e1       	ldi	r24, 0x1D	; 29
+ 71a:	90 e0       	ldi	r25, 0x00	; 0
+ 71c:	e7 de       	rcall	.-562    	; 0x4ec <ioport_set_pin_level>
+
+	ioport_set_pin_level(TFT_RST, 1);
+ 71e:	61 e0       	ldi	r22, 0x01	; 1
+ 720:	8f e1       	ldi	r24, 0x1F	; 31
+ 722:	90 e0       	ldi	r25, 0x00	; 0
+ 724:	e3 de       	rcall	.-570    	; 0x4ec <ioport_set_pin_level>
+ 726:	80 e0       	ldi	r24, 0x00	; 0
+ 728:	90 e0       	ldi	r25, 0x00	; 0
+ 72a:	aa ef       	ldi	r26, 0xFA	; 250
+ 72c:	b3 e4       	ldi	r27, 0x43	; 67
+ 72e:	89 8b       	std	Y+17, r24	; 0x11
+ 730:	9a 8b       	std	Y+18, r25	; 0x12
+ 732:	ab 8b       	std	Y+19, r26	; 0x13
+ 734:	bc 8b       	std	Y+20, r27	; 0x14
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#else
+	uint16_t __ticks;
+	__tmp = ((F_CPU) / 4e3) * __ms;
+ 736:	20 e0       	ldi	r18, 0x00	; 0
+ 738:	30 e0       	ldi	r19, 0x00	; 0
+ 73a:	4a e7       	ldi	r20, 0x7A	; 122
+ 73c:	53 e4       	ldi	r21, 0x43	; 67
+ 73e:	69 89       	ldd	r22, Y+17	; 0x11
+ 740:	7a 89       	ldd	r23, Y+18	; 0x12
+ 742:	8b 89       	ldd	r24, Y+19	; 0x13
+ 744:	9c 89       	ldd	r25, Y+20	; 0x14
+ 746:	34 d3       	rcall	.+1640   	; 0xdb0 <__mulsf3>
+ 748:	dc 01       	movw	r26, r24
+ 74a:	cb 01       	movw	r24, r22
+ 74c:	8d 8b       	std	Y+21, r24	; 0x15
+ 74e:	9e 8b       	std	Y+22, r25	; 0x16
+ 750:	af 8b       	std	Y+23, r26	; 0x17
+ 752:	b8 8f       	std	Y+24, r27	; 0x18
+	if (__tmp < 1.0)
+ 754:	20 e0       	ldi	r18, 0x00	; 0
+ 756:	30 e0       	ldi	r19, 0x00	; 0
+ 758:	40 e8       	ldi	r20, 0x80	; 128
+ 75a:	5f e3       	ldi	r21, 0x3F	; 63
+ 75c:	6d 89       	ldd	r22, Y+21	; 0x15
+ 75e:	7e 89       	ldd	r23, Y+22	; 0x16
+ 760:	8f 89       	ldd	r24, Y+23	; 0x17
+ 762:	98 8d       	ldd	r25, Y+24	; 0x18
+ 764:	a4 d2       	rcall	.+1352   	; 0xcae <__cmpsf2>
+ 766:	88 23       	and	r24, r24
+ 768:	2c f4       	brge	.+10     	; 0x774 <main+0xc8>
+		__ticks = 1;
+ 76a:	81 e0       	ldi	r24, 0x01	; 1
+ 76c:	90 e0       	ldi	r25, 0x00	; 0
+ 76e:	9a 8f       	std	Y+26, r25	; 0x1a
+ 770:	89 8f       	std	Y+25, r24	; 0x19
+ 772:	3b c0       	rjmp	.+118    	; 0x7ea <main+0x13e>
+	else if (__tmp > 65535)
+ 774:	20 e0       	ldi	r18, 0x00	; 0
+ 776:	3f ef       	ldi	r19, 0xFF	; 255
+ 778:	4f e7       	ldi	r20, 0x7F	; 127
+ 77a:	57 e4       	ldi	r21, 0x47	; 71
+ 77c:	6d 89       	ldd	r22, Y+21	; 0x15
+ 77e:	7e 89       	ldd	r23, Y+22	; 0x16
+ 780:	8f 89       	ldd	r24, Y+23	; 0x17
+ 782:	98 8d       	ldd	r25, Y+24	; 0x18
+ 784:	11 d3       	rcall	.+1570   	; 0xda8 <__gesf2>
+ 786:	18 16       	cp	r1, r24
+ 788:	3c f5       	brge	.+78     	; 0x7d8 <main+0x12c>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+ 78a:	20 e0       	ldi	r18, 0x00	; 0
+ 78c:	30 e0       	ldi	r19, 0x00	; 0
+ 78e:	40 e2       	ldi	r20, 0x20	; 32
+ 790:	51 e4       	ldi	r21, 0x41	; 65
+ 792:	69 89       	ldd	r22, Y+17	; 0x11
+ 794:	7a 89       	ldd	r23, Y+18	; 0x12
+ 796:	8b 89       	ldd	r24, Y+19	; 0x13
+ 798:	9c 89       	ldd	r25, Y+20	; 0x14
+ 79a:	0a d3       	rcall	.+1556   	; 0xdb0 <__mulsf3>
+ 79c:	dc 01       	movw	r26, r24
+ 79e:	cb 01       	movw	r24, r22
+ 7a0:	bc 01       	movw	r22, r24
+ 7a2:	cd 01       	movw	r24, r26
+ 7a4:	88 d2       	rcall	.+1296   	; 0xcb6 <__fixunssfsi>
+ 7a6:	dc 01       	movw	r26, r24
+ 7a8:	cb 01       	movw	r24, r22
+ 7aa:	9a 8f       	std	Y+26, r25	; 0x1a
+ 7ac:	89 8f       	std	Y+25, r24	; 0x19
+ 7ae:	0f c0       	rjmp	.+30     	; 0x7ce <main+0x122>
+ 7b0:	89 e1       	ldi	r24, 0x19	; 25
+ 7b2:	90 e0       	ldi	r25, 0x00	; 0
+ 7b4:	9c 8f       	std	Y+28, r25	; 0x1c
+ 7b6:	8b 8f       	std	Y+27, r24	; 0x1b
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 7b8:	8b 8d       	ldd	r24, Y+27	; 0x1b
+ 7ba:	9c 8d       	ldd	r25, Y+28	; 0x1c
+ 7bc:	01 97       	sbiw	r24, 0x01	; 1
+ 7be:	f1 f7       	brne	.-4      	; 0x7bc <main+0x110>
+ 7c0:	9c 8f       	std	Y+28, r25	; 0x1c
+ 7c2:	8b 8f       	std	Y+27, r24	; 0x1b
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 7c4:	89 8d       	ldd	r24, Y+25	; 0x19
+ 7c6:	9a 8d       	ldd	r25, Y+26	; 0x1a
+ 7c8:	01 97       	sbiw	r24, 0x01	; 1
+ 7ca:	9a 8f       	std	Y+26, r25	; 0x1a
+ 7cc:	89 8f       	std	Y+25, r24	; 0x19
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 7ce:	89 8d       	ldd	r24, Y+25	; 0x19
+ 7d0:	9a 8d       	ldd	r25, Y+26	; 0x1a
+ 7d2:	89 2b       	or	r24, r25
+ 7d4:	69 f7       	brne	.-38     	; 0x7b0 <main+0x104>
+ 7d6:	13 c0       	rjmp	.+38     	; 0x7fe <main+0x152>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ 7d8:	6d 89       	ldd	r22, Y+21	; 0x15
+ 7da:	7e 89       	ldd	r23, Y+22	; 0x16
+ 7dc:	8f 89       	ldd	r24, Y+23	; 0x17
+ 7de:	98 8d       	ldd	r25, Y+24	; 0x18
+ 7e0:	6a d2       	rcall	.+1236   	; 0xcb6 <__fixunssfsi>
+ 7e2:	dc 01       	movw	r26, r24
+ 7e4:	cb 01       	movw	r24, r22
+ 7e6:	9a 8f       	std	Y+26, r25	; 0x1a
+ 7e8:	89 8f       	std	Y+25, r24	; 0x19
+ 7ea:	89 8d       	ldd	r24, Y+25	; 0x19
+ 7ec:	9a 8d       	ldd	r25, Y+26	; 0x1a
+ 7ee:	9e 8f       	std	Y+30, r25	; 0x1e
+ 7f0:	8d 8f       	std	Y+29, r24	; 0x1d
+ 7f2:	8d 8d       	ldd	r24, Y+29	; 0x1d
+ 7f4:	9e 8d       	ldd	r25, Y+30	; 0x1e
+ 7f6:	01 97       	sbiw	r24, 0x01	; 1
+ 7f8:	f1 f7       	brne	.-4      	; 0x7f6 <main+0x14a>
+ 7fa:	9e 8f       	std	Y+30, r25	; 0x1e
+ 7fc:	8d 8f       	std	Y+29, r24	; 0x1d
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_RST, 0);
+ 7fe:	60 e0       	ldi	r22, 0x00	; 0
+ 800:	8f e1       	ldi	r24, 0x1F	; 31
+ 802:	90 e0       	ldi	r25, 0x00	; 0
+ 804:	73 de       	rcall	.-794    	; 0x4ec <ioport_set_pin_level>
+ 806:	80 e0       	ldi	r24, 0x00	; 0
+ 808:	90 e0       	ldi	r25, 0x00	; 0
+ 80a:	aa ef       	ldi	r26, 0xFA	; 250
+ 80c:	b3 e4       	ldi	r27, 0x43	; 67
+ 80e:	8f 8f       	std	Y+31, r24	; 0x1f
+ 810:	98 a3       	std	Y+32, r25	; 0x20
+ 812:	a9 a3       	std	Y+33, r26	; 0x21
+ 814:	ba a3       	std	Y+34, r27	; 0x22
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#else
+	uint16_t __ticks;
+	__tmp = ((F_CPU) / 4e3) * __ms;
+ 816:	20 e0       	ldi	r18, 0x00	; 0
+ 818:	30 e0       	ldi	r19, 0x00	; 0
+ 81a:	4a e7       	ldi	r20, 0x7A	; 122
+ 81c:	53 e4       	ldi	r21, 0x43	; 67
+ 81e:	6f 8d       	ldd	r22, Y+31	; 0x1f
+ 820:	78 a1       	ldd	r23, Y+32	; 0x20
+ 822:	89 a1       	ldd	r24, Y+33	; 0x21
+ 824:	9a a1       	ldd	r25, Y+34	; 0x22
+ 826:	c4 d2       	rcall	.+1416   	; 0xdb0 <__mulsf3>
+ 828:	dc 01       	movw	r26, r24
+ 82a:	cb 01       	movw	r24, r22
+ 82c:	8b a3       	std	Y+35, r24	; 0x23
+ 82e:	9c a3       	std	Y+36, r25	; 0x24
+ 830:	ad a3       	std	Y+37, r26	; 0x25
+ 832:	be a3       	std	Y+38, r27	; 0x26
+	if (__tmp < 1.0)
+ 834:	20 e0       	ldi	r18, 0x00	; 0
+ 836:	30 e0       	ldi	r19, 0x00	; 0
+ 838:	40 e8       	ldi	r20, 0x80	; 128
+ 83a:	5f e3       	ldi	r21, 0x3F	; 63
+ 83c:	6b a1       	ldd	r22, Y+35	; 0x23
+ 83e:	7c a1       	ldd	r23, Y+36	; 0x24
+ 840:	8d a1       	ldd	r24, Y+37	; 0x25
+ 842:	9e a1       	ldd	r25, Y+38	; 0x26
+ 844:	34 d2       	rcall	.+1128   	; 0xcae <__cmpsf2>
+ 846:	88 23       	and	r24, r24
+ 848:	2c f4       	brge	.+10     	; 0x854 <main+0x1a8>
+		__ticks = 1;
+ 84a:	81 e0       	ldi	r24, 0x01	; 1
+ 84c:	90 e0       	ldi	r25, 0x00	; 0
+ 84e:	98 a7       	std	Y+40, r25	; 0x28
+ 850:	8f a3       	std	Y+39, r24	; 0x27
+ 852:	3b c0       	rjmp	.+118    	; 0x8ca <main+0x21e>
+	else if (__tmp > 65535)
+ 854:	20 e0       	ldi	r18, 0x00	; 0
+ 856:	3f ef       	ldi	r19, 0xFF	; 255
+ 858:	4f e7       	ldi	r20, 0x7F	; 127
+ 85a:	57 e4       	ldi	r21, 0x47	; 71
+ 85c:	6b a1       	ldd	r22, Y+35	; 0x23
+ 85e:	7c a1       	ldd	r23, Y+36	; 0x24
+ 860:	8d a1       	ldd	r24, Y+37	; 0x25
+ 862:	9e a1       	ldd	r25, Y+38	; 0x26
+ 864:	a1 d2       	rcall	.+1346   	; 0xda8 <__gesf2>
+ 866:	18 16       	cp	r1, r24
+ 868:	3c f5       	brge	.+78     	; 0x8b8 <main+0x20c>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+ 86a:	20 e0       	ldi	r18, 0x00	; 0
+ 86c:	30 e0       	ldi	r19, 0x00	; 0
+ 86e:	40 e2       	ldi	r20, 0x20	; 32
+ 870:	51 e4       	ldi	r21, 0x41	; 65
+ 872:	6f 8d       	ldd	r22, Y+31	; 0x1f
+ 874:	78 a1       	ldd	r23, Y+32	; 0x20
+ 876:	89 a1       	ldd	r24, Y+33	; 0x21
+ 878:	9a a1       	ldd	r25, Y+34	; 0x22
+ 87a:	9a d2       	rcall	.+1332   	; 0xdb0 <__mulsf3>
+ 87c:	dc 01       	movw	r26, r24
+ 87e:	cb 01       	movw	r24, r22
+ 880:	bc 01       	movw	r22, r24
+ 882:	cd 01       	movw	r24, r26
+ 884:	18 d2       	rcall	.+1072   	; 0xcb6 <__fixunssfsi>
+ 886:	dc 01       	movw	r26, r24
+ 888:	cb 01       	movw	r24, r22
+ 88a:	98 a7       	std	Y+40, r25	; 0x28
+ 88c:	8f a3       	std	Y+39, r24	; 0x27
+ 88e:	0f c0       	rjmp	.+30     	; 0x8ae <main+0x202>
+ 890:	89 e1       	ldi	r24, 0x19	; 25
+ 892:	90 e0       	ldi	r25, 0x00	; 0
+ 894:	9a a7       	std	Y+42, r25	; 0x2a
+ 896:	89 a7       	std	Y+41, r24	; 0x29
+ 898:	89 a5       	ldd	r24, Y+41	; 0x29
+ 89a:	9a a5       	ldd	r25, Y+42	; 0x2a
+ 89c:	01 97       	sbiw	r24, 0x01	; 1
+ 89e:	f1 f7       	brne	.-4      	; 0x89c <main+0x1f0>
+ 8a0:	9a a7       	std	Y+42, r25	; 0x2a
+ 8a2:	89 a7       	std	Y+41, r24	; 0x29
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 8a4:	8f a1       	ldd	r24, Y+39	; 0x27
+ 8a6:	98 a5       	ldd	r25, Y+40	; 0x28
+ 8a8:	01 97       	sbiw	r24, 0x01	; 1
+ 8aa:	98 a7       	std	Y+40, r25	; 0x28
+ 8ac:	8f a3       	std	Y+39, r24	; 0x27
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 8ae:	8f a1       	ldd	r24, Y+39	; 0x27
+ 8b0:	98 a5       	ldd	r25, Y+40	; 0x28
+ 8b2:	89 2b       	or	r24, r25
+ 8b4:	69 f7       	brne	.-38     	; 0x890 <main+0x1e4>
+ 8b6:	13 c0       	rjmp	.+38     	; 0x8de <main+0x232>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ 8b8:	6b a1       	ldd	r22, Y+35	; 0x23
+ 8ba:	7c a1       	ldd	r23, Y+36	; 0x24
+ 8bc:	8d a1       	ldd	r24, Y+37	; 0x25
+ 8be:	9e a1       	ldd	r25, Y+38	; 0x26
+ 8c0:	fa d1       	rcall	.+1012   	; 0xcb6 <__fixunssfsi>
+ 8c2:	dc 01       	movw	r26, r24
+ 8c4:	cb 01       	movw	r24, r22
+ 8c6:	98 a7       	std	Y+40, r25	; 0x28
+ 8c8:	8f a3       	std	Y+39, r24	; 0x27
+ 8ca:	8f a1       	ldd	r24, Y+39	; 0x27
+ 8cc:	98 a5       	ldd	r25, Y+40	; 0x28
+ 8ce:	9c a7       	std	Y+44, r25	; 0x2c
+ 8d0:	8b a7       	std	Y+43, r24	; 0x2b
+ 8d2:	8b a5       	ldd	r24, Y+43	; 0x2b
+ 8d4:	9c a5       	ldd	r25, Y+44	; 0x2c
+ 8d6:	01 97       	sbiw	r24, 0x01	; 1
+ 8d8:	f1 f7       	brne	.-4      	; 0x8d6 <main+0x22a>
+ 8da:	9c a7       	std	Y+44, r25	; 0x2c
+ 8dc:	8b a7       	std	Y+43, r24	; 0x2b
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_RST, 1);
+ 8de:	61 e0       	ldi	r22, 0x01	; 1
+ 8e0:	8f e1       	ldi	r24, 0x1F	; 31
+ 8e2:	90 e0       	ldi	r25, 0x00	; 0
+ 8e4:	03 de       	rcall	.-1018   	; 0x4ec <ioport_set_pin_level>
+ 8e6:	80 e0       	ldi	r24, 0x00	; 0
+ 8e8:	90 e0       	ldi	r25, 0x00	; 0
+ 8ea:	aa ef       	ldi	r26, 0xFA	; 250
+ 8ec:	b3 e4       	ldi	r27, 0x43	; 67
+ 8ee:	8d a7       	std	Y+45, r24	; 0x2d
+ 8f0:	9e a7       	std	Y+46, r25	; 0x2e
+ 8f2:	af a7       	std	Y+47, r26	; 0x2f
+ 8f4:	b8 ab       	std	Y+48, r27	; 0x30
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#else
+	uint16_t __ticks;
+	__tmp = ((F_CPU) / 4e3) * __ms;
+ 8f6:	20 e0       	ldi	r18, 0x00	; 0
+ 8f8:	30 e0       	ldi	r19, 0x00	; 0
+ 8fa:	4a e7       	ldi	r20, 0x7A	; 122
+ 8fc:	53 e4       	ldi	r21, 0x43	; 67
+ 8fe:	6d a5       	ldd	r22, Y+45	; 0x2d
+ 900:	7e a5       	ldd	r23, Y+46	; 0x2e
+ 902:	8f a5       	ldd	r24, Y+47	; 0x2f
+ 904:	98 a9       	ldd	r25, Y+48	; 0x30
+ 906:	54 d2       	rcall	.+1192   	; 0xdb0 <__mulsf3>
+ 908:	dc 01       	movw	r26, r24
+ 90a:	cb 01       	movw	r24, r22
+ 90c:	89 ab       	std	Y+49, r24	; 0x31
+ 90e:	9a ab       	std	Y+50, r25	; 0x32
+ 910:	ab ab       	std	Y+51, r26	; 0x33
+ 912:	bc ab       	std	Y+52, r27	; 0x34
+	if (__tmp < 1.0)
+ 914:	20 e0       	ldi	r18, 0x00	; 0
+ 916:	30 e0       	ldi	r19, 0x00	; 0
+ 918:	40 e8       	ldi	r20, 0x80	; 128
+ 91a:	5f e3       	ldi	r21, 0x3F	; 63
+ 91c:	69 a9       	ldd	r22, Y+49	; 0x31
+ 91e:	7a a9       	ldd	r23, Y+50	; 0x32
+ 920:	8b a9       	ldd	r24, Y+51	; 0x33
+ 922:	9c a9       	ldd	r25, Y+52	; 0x34
+ 924:	c4 d1       	rcall	.+904    	; 0xcae <__cmpsf2>
+ 926:	88 23       	and	r24, r24
+ 928:	2c f4       	brge	.+10     	; 0x934 <__stack+0x35>
+		__ticks = 1;
+ 92a:	81 e0       	ldi	r24, 0x01	; 1
+ 92c:	90 e0       	ldi	r25, 0x00	; 0
+ 92e:	9e ab       	std	Y+54, r25	; 0x36
+ 930:	8d ab       	std	Y+53, r24	; 0x35
+ 932:	3b c0       	rjmp	.+118    	; 0x9aa <__stack+0xab>
+	else if (__tmp > 65535)
+ 934:	20 e0       	ldi	r18, 0x00	; 0
+ 936:	3f ef       	ldi	r19, 0xFF	; 255
+ 938:	4f e7       	ldi	r20, 0x7F	; 127
+ 93a:	57 e4       	ldi	r21, 0x47	; 71
+ 93c:	69 a9       	ldd	r22, Y+49	; 0x31
+ 93e:	7a a9       	ldd	r23, Y+50	; 0x32
+ 940:	8b a9       	ldd	r24, Y+51	; 0x33
+ 942:	9c a9       	ldd	r25, Y+52	; 0x34
+ 944:	31 d2       	rcall	.+1122   	; 0xda8 <__gesf2>
+ 946:	18 16       	cp	r1, r24
+ 948:	3c f5       	brge	.+78     	; 0x998 <__stack+0x99>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+ 94a:	20 e0       	ldi	r18, 0x00	; 0
+ 94c:	30 e0       	ldi	r19, 0x00	; 0
+ 94e:	40 e2       	ldi	r20, 0x20	; 32
+ 950:	51 e4       	ldi	r21, 0x41	; 65
+ 952:	6d a5       	ldd	r22, Y+45	; 0x2d
+ 954:	7e a5       	ldd	r23, Y+46	; 0x2e
+ 956:	8f a5       	ldd	r24, Y+47	; 0x2f
+ 958:	98 a9       	ldd	r25, Y+48	; 0x30
+ 95a:	2a d2       	rcall	.+1108   	; 0xdb0 <__mulsf3>
+ 95c:	dc 01       	movw	r26, r24
+ 95e:	cb 01       	movw	r24, r22
+ 960:	bc 01       	movw	r22, r24
+ 962:	cd 01       	movw	r24, r26
+ 964:	a8 d1       	rcall	.+848    	; 0xcb6 <__fixunssfsi>
+ 966:	dc 01       	movw	r26, r24
+ 968:	cb 01       	movw	r24, r22
+ 96a:	9e ab       	std	Y+54, r25	; 0x36
+ 96c:	8d ab       	std	Y+53, r24	; 0x35
+ 96e:	0f c0       	rjmp	.+30     	; 0x98e <__stack+0x8f>
+ 970:	89 e1       	ldi	r24, 0x19	; 25
+ 972:	90 e0       	ldi	r25, 0x00	; 0
+ 974:	98 af       	std	Y+56, r25	; 0x38
+ 976:	8f ab       	std	Y+55, r24	; 0x37
+ 978:	8f a9       	ldd	r24, Y+55	; 0x37
+ 97a:	98 ad       	ldd	r25, Y+56	; 0x38
+ 97c:	01 97       	sbiw	r24, 0x01	; 1
+ 97e:	f1 f7       	brne	.-4      	; 0x97c <__stack+0x7d>
+ 980:	98 af       	std	Y+56, r25	; 0x38
+ 982:	8f ab       	std	Y+55, r24	; 0x37
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 984:	8d a9       	ldd	r24, Y+53	; 0x35
+ 986:	9e a9       	ldd	r25, Y+54	; 0x36
+ 988:	01 97       	sbiw	r24, 0x01	; 1
+ 98a:	9e ab       	std	Y+54, r25	; 0x36
+ 98c:	8d ab       	std	Y+53, r24	; 0x35
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 98e:	8d a9       	ldd	r24, Y+53	; 0x35
+ 990:	9e a9       	ldd	r25, Y+54	; 0x36
+ 992:	89 2b       	or	r24, r25
+ 994:	69 f7       	brne	.-38     	; 0x970 <__stack+0x71>
+ 996:	13 c0       	rjmp	.+38     	; 0x9be <__stack+0xbf>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ 998:	69 a9       	ldd	r22, Y+49	; 0x31
+ 99a:	7a a9       	ldd	r23, Y+50	; 0x32
+ 99c:	8b a9       	ldd	r24, Y+51	; 0x33
+ 99e:	9c a9       	ldd	r25, Y+52	; 0x34
+ 9a0:	8a d1       	rcall	.+788    	; 0xcb6 <__fixunssfsi>
+ 9a2:	dc 01       	movw	r26, r24
+ 9a4:	cb 01       	movw	r24, r22
+ 9a6:	9e ab       	std	Y+54, r25	; 0x36
+ 9a8:	8d ab       	std	Y+53, r24	; 0x35
+ 9aa:	8d a9       	ldd	r24, Y+53	; 0x35
+ 9ac:	9e a9       	ldd	r25, Y+54	; 0x36
+ 9ae:	9a af       	std	Y+58, r25	; 0x3a
+ 9b0:	89 af       	std	Y+57, r24	; 0x39
+ 9b2:	89 ad       	ldd	r24, Y+57	; 0x39
+ 9b4:	9a ad       	ldd	r25, Y+58	; 0x3a
+ 9b6:	01 97       	sbiw	r24, 0x01	; 1
+ 9b8:	f1 f7       	brne	.-4      	; 0x9b6 <__stack+0xb7>
+ 9ba:	9a af       	std	Y+58, r25	; 0x3a
+ 9bc:	89 af       	std	Y+57, r24	; 0x39
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_CS, 1); // active low
+ 9be:	61 e0       	ldi	r22, 0x01	; 1
+ 9c0:	8e e1       	ldi	r24, 0x1E	; 30
+ 9c2:	90 e0       	ldi	r25, 0x00	; 0
+ 9c4:	93 dd       	rcall	.-1242   	; 0x4ec <ioport_set_pin_level>
+ 9c6:	80 e0       	ldi	r24, 0x00	; 0
+ 9c8:	90 e0       	ldi	r25, 0x00	; 0
+ 9ca:	aa ef       	ldi	r26, 0xFA	; 250
+ 9cc:	b3 e4       	ldi	r27, 0x43	; 67
+ 9ce:	8b af       	std	Y+59, r24	; 0x3b
+ 9d0:	9c af       	std	Y+60, r25	; 0x3c
+ 9d2:	ad af       	std	Y+61, r26	; 0x3d
+ 9d4:	be af       	std	Y+62, r27	; 0x3e
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+
+#else
+	uint16_t __ticks;
+	__tmp = ((F_CPU) / 4e3) * __ms;
+ 9d6:	8e 01       	movw	r16, r28
+ 9d8:	01 5c       	subi	r16, 0xC1	; 193
+ 9da:	1f 4f       	sbci	r17, 0xFF	; 255
+ 9dc:	20 e0       	ldi	r18, 0x00	; 0
+ 9de:	30 e0       	ldi	r19, 0x00	; 0
+ 9e0:	4a e7       	ldi	r20, 0x7A	; 122
+ 9e2:	53 e4       	ldi	r21, 0x43	; 67
+ 9e4:	6b ad       	ldd	r22, Y+59	; 0x3b
+ 9e6:	7c ad       	ldd	r23, Y+60	; 0x3c
+ 9e8:	8d ad       	ldd	r24, Y+61	; 0x3d
+ 9ea:	9e ad       	ldd	r25, Y+62	; 0x3e
+ 9ec:	e1 d1       	rcall	.+962    	; 0xdb0 <__mulsf3>
+ 9ee:	dc 01       	movw	r26, r24
+ 9f0:	cb 01       	movw	r24, r22
+ 9f2:	f8 01       	movw	r30, r16
+ 9f4:	80 83       	st	Z, r24
+ 9f6:	91 83       	std	Z+1, r25	; 0x01
+ 9f8:	a2 83       	std	Z+2, r26	; 0x02
+ 9fa:	b3 83       	std	Z+3, r27	; 0x03
+	if (__tmp < 1.0)
+ 9fc:	ce 01       	movw	r24, r28
+ 9fe:	cf 96       	adiw	r24, 0x3f	; 63
+ a00:	20 e0       	ldi	r18, 0x00	; 0
+ a02:	30 e0       	ldi	r19, 0x00	; 0
+ a04:	40 e8       	ldi	r20, 0x80	; 128
+ a06:	5f e3       	ldi	r21, 0x3F	; 63
+ a08:	fc 01       	movw	r30, r24
+ a0a:	60 81       	ld	r22, Z
+ a0c:	71 81       	ldd	r23, Z+1	; 0x01
+ a0e:	82 81       	ldd	r24, Z+2	; 0x02
+ a10:	93 81       	ldd	r25, Z+3	; 0x03
+ a12:	4d d1       	rcall	.+666    	; 0xcae <__cmpsf2>
+ a14:	88 23       	and	r24, r24
+ a16:	4c f4       	brge	.+18     	; 0xa2a <__stack+0x12b>
+		__ticks = 1;
+ a18:	ce 01       	movw	r24, r28
+ a1a:	8d 5b       	subi	r24, 0xBD	; 189
+ a1c:	9f 4f       	sbci	r25, 0xFF	; 255
+ a1e:	21 e0       	ldi	r18, 0x01	; 1
+ a20:	30 e0       	ldi	r19, 0x00	; 0
+ a22:	fc 01       	movw	r30, r24
+ a24:	31 83       	std	Z+1, r19	; 0x01
+ a26:	20 83       	st	Z, r18
+ a28:	63 c0       	rjmp	.+198    	; 0xaf0 <__stack+0x1f1>
+	else if (__tmp > 65535)
+ a2a:	ce 01       	movw	r24, r28
+ a2c:	cf 96       	adiw	r24, 0x3f	; 63
+ a2e:	20 e0       	ldi	r18, 0x00	; 0
+ a30:	3f ef       	ldi	r19, 0xFF	; 255
+ a32:	4f e7       	ldi	r20, 0x7F	; 127
+ a34:	57 e4       	ldi	r21, 0x47	; 71
+ a36:	fc 01       	movw	r30, r24
+ a38:	60 81       	ld	r22, Z
+ a3a:	71 81       	ldd	r23, Z+1	; 0x01
+ a3c:	82 81       	ldd	r24, Z+2	; 0x02
+ a3e:	93 81       	ldd	r25, Z+3	; 0x03
+ a40:	b3 d1       	rcall	.+870    	; 0xda8 <__gesf2>
+ a42:	18 16       	cp	r1, r24
+ a44:	0c f0       	brlt	.+2      	; 0xa48 <__stack+0x149>
+ a46:	44 c0       	rjmp	.+136    	; 0xad0 <__stack+0x1d1>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+ a48:	20 e0       	ldi	r18, 0x00	; 0
+ a4a:	30 e0       	ldi	r19, 0x00	; 0
+ a4c:	40 e2       	ldi	r20, 0x20	; 32
+ a4e:	51 e4       	ldi	r21, 0x41	; 65
+ a50:	6b ad       	ldd	r22, Y+59	; 0x3b
+ a52:	7c ad       	ldd	r23, Y+60	; 0x3c
+ a54:	8d ad       	ldd	r24, Y+61	; 0x3d
+ a56:	9e ad       	ldd	r25, Y+62	; 0x3e
+ a58:	ab d1       	rcall	.+854    	; 0xdb0 <__mulsf3>
+ a5a:	dc 01       	movw	r26, r24
+ a5c:	cb 01       	movw	r24, r22
+ a5e:	8e 01       	movw	r16, r28
+ a60:	0d 5b       	subi	r16, 0xBD	; 189
+ a62:	1f 4f       	sbci	r17, 0xFF	; 255
+ a64:	bc 01       	movw	r22, r24
+ a66:	cd 01       	movw	r24, r26
+ a68:	26 d1       	rcall	.+588    	; 0xcb6 <__fixunssfsi>
+ a6a:	dc 01       	movw	r26, r24
+ a6c:	cb 01       	movw	r24, r22
+ a6e:	f8 01       	movw	r30, r16
+ a70:	91 83       	std	Z+1, r25	; 0x01
+ a72:	80 83       	st	Z, r24
+ a74:	24 c0       	rjmp	.+72     	; 0xabe <__stack+0x1bf>
+ a76:	ce 01       	movw	r24, r28
+ a78:	8b 5b       	subi	r24, 0xBB	; 187
+ a7a:	9f 4f       	sbci	r25, 0xFF	; 255
+ a7c:	29 e1       	ldi	r18, 0x19	; 25
+ a7e:	30 e0       	ldi	r19, 0x00	; 0
+ a80:	fc 01       	movw	r30, r24
+ a82:	31 83       	std	Z+1, r19	; 0x01
+ a84:	20 83       	st	Z, r18
+ a86:	ce 01       	movw	r24, r28
+ a88:	8b 5b       	subi	r24, 0xBB	; 187
+ a8a:	9f 4f       	sbci	r25, 0xFF	; 255
+ a8c:	fc 01       	movw	r30, r24
+ a8e:	80 81       	ld	r24, Z
+ a90:	91 81       	ldd	r25, Z+1	; 0x01
+ a92:	01 97       	sbiw	r24, 0x01	; 1
+ a94:	f1 f7       	brne	.-4      	; 0xa92 <__stack+0x193>
+ a96:	9e 01       	movw	r18, r28
+ a98:	2b 5b       	subi	r18, 0xBB	; 187
+ a9a:	3f 4f       	sbci	r19, 0xFF	; 255
+ a9c:	f9 01       	movw	r30, r18
+ a9e:	91 83       	std	Z+1, r25	; 0x01
+ aa0:	80 83       	st	Z, r24
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ aa2:	ce 01       	movw	r24, r28
+ aa4:	8d 5b       	subi	r24, 0xBD	; 189
+ aa6:	9f 4f       	sbci	r25, 0xFF	; 255
+ aa8:	9e 01       	movw	r18, r28
+ aaa:	2d 5b       	subi	r18, 0xBD	; 189
+ aac:	3f 4f       	sbci	r19, 0xFF	; 255
+ aae:	f9 01       	movw	r30, r18
+ ab0:	20 81       	ld	r18, Z
+ ab2:	31 81       	ldd	r19, Z+1	; 0x01
+ ab4:	21 50       	subi	r18, 0x01	; 1
+ ab6:	31 09       	sbc	r19, r1
+ ab8:	fc 01       	movw	r30, r24
+ aba:	31 83       	std	Z+1, r19	; 0x01
+ abc:	20 83       	st	Z, r18
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ abe:	ce 01       	movw	r24, r28
+ ac0:	8d 5b       	subi	r24, 0xBD	; 189
+ ac2:	9f 4f       	sbci	r25, 0xFF	; 255
+ ac4:	fc 01       	movw	r30, r24
+ ac6:	80 81       	ld	r24, Z
+ ac8:	91 81       	ldd	r25, Z+1	; 0x01
+ aca:	89 2b       	or	r24, r25
+ acc:	a1 f6       	brne	.-88     	; 0xa76 <__stack+0x177>
+ ace:	2a c0       	rjmp	.+84     	; 0xb24 <__stack+0x225>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+ ad0:	8e 01       	movw	r16, r28
+ ad2:	0d 5b       	subi	r16, 0xBD	; 189
+ ad4:	1f 4f       	sbci	r17, 0xFF	; 255
+ ad6:	ce 01       	movw	r24, r28
+ ad8:	cf 96       	adiw	r24, 0x3f	; 63
+ ada:	fc 01       	movw	r30, r24
+ adc:	60 81       	ld	r22, Z
+ ade:	71 81       	ldd	r23, Z+1	; 0x01
+ ae0:	82 81       	ldd	r24, Z+2	; 0x02
+ ae2:	93 81       	ldd	r25, Z+3	; 0x03
+ ae4:	e8 d0       	rcall	.+464    	; 0xcb6 <__fixunssfsi>
+ ae6:	dc 01       	movw	r26, r24
+ ae8:	cb 01       	movw	r24, r22
+ aea:	f8 01       	movw	r30, r16
+ aec:	91 83       	std	Z+1, r25	; 0x01
+ aee:	80 83       	st	Z, r24
+ af0:	ce 01       	movw	r24, r28
+ af2:	89 5b       	subi	r24, 0xB9	; 185
+ af4:	9f 4f       	sbci	r25, 0xFF	; 255
+ af6:	9e 01       	movw	r18, r28
+ af8:	2d 5b       	subi	r18, 0xBD	; 189
+ afa:	3f 4f       	sbci	r19, 0xFF	; 255
+ afc:	f9 01       	movw	r30, r18
+ afe:	20 81       	ld	r18, Z
+ b00:	31 81       	ldd	r19, Z+1	; 0x01
+ b02:	fc 01       	movw	r30, r24
+ b04:	31 83       	std	Z+1, r19	; 0x01
+ b06:	20 83       	st	Z, r18
+ b08:	ce 01       	movw	r24, r28
+ b0a:	89 5b       	subi	r24, 0xB9	; 185
+ b0c:	9f 4f       	sbci	r25, 0xFF	; 255
+ b0e:	fc 01       	movw	r30, r24
+ b10:	80 81       	ld	r24, Z
+ b12:	91 81       	ldd	r25, Z+1	; 0x01
+ b14:	01 97       	sbiw	r24, 0x01	; 1
+ b16:	f1 f7       	brne	.-4      	; 0xb14 <__stack+0x215>
+ b18:	9e 01       	movw	r18, r28
+ b1a:	29 5b       	subi	r18, 0xB9	; 185
+ b1c:	3f 4f       	sbci	r19, 0xFF	; 255
+ b1e:	f9 01       	movw	r30, r18
+ b20:	91 83       	std	Z+1, r25	; 0x01
+ b22:	80 83       	st	Z, r24
+	_delay_ms(500);
+	ioport_set_pin_level(TFT_CS, 0); // active low
+ b24:	60 e0       	ldi	r22, 0x00	; 0
+ b26:	8e e1       	ldi	r24, 0x1E	; 30
+ b28:	90 e0       	ldi	r25, 0x00	; 0
+ b2a:	e0 dc       	rcall	.-1600   	; 0x4ec <ioport_set_pin_level>
+	ioport_set_pin_level(TFT_DC, 0); // active low
+ b2c:	60 e0       	ldi	r22, 0x00	; 0
+ b2e:	88 e0       	ldi	r24, 0x08	; 8
+ b30:	90 e0       	ldi	r25, 0x00	; 0
+ b32:	dc dc       	rcall	.-1608   	; 0x4ec <ioport_set_pin_level>
+
+	transmitByte = 0x29; // Turn on command
+ b34:	89 e2       	ldi	r24, 0x29	; 41
+ b36:	8f 87       	std	Y+15, r24	; 0x0f
+	SPI_MasterTransmit(transmitByte);
+ b38:	8f 85       	ldd	r24, Y+15	; 0x0f
+ b3a:	a2 dd       	rcall	.-1212   	; 0x680 <SPI_MasterTransmit>
+		temp = SPDR;
+	}
+	*/
+
+
+	transmitByte = 0x3a; // Color mode
+ b3c:	8a e3       	ldi	r24, 0x3A	; 58
+ b3e:	8f 87       	std	Y+15, r24	; 0x0f
+	SPI_MasterTransmit(transmitByte);
+ b40:	8f 85       	ldd	r24, Y+15	; 0x0f
+ b42:	9e dd       	rcall	.-1220   	; 0x680 <SPI_MasterTransmit>
+	ioport_set_pin_level(TFT_DC, 1);
+ b44:	61 e0       	ldi	r22, 0x01	; 1
+ b46:	88 e0       	ldi	r24, 0x08	; 8
+ b48:	90 e0       	ldi	r25, 0x00	; 0
+ b4a:	d0 dc       	rcall	.-1632   	; 0x4ec <ioport_set_pin_level>
+	transmitByte = 0x03;// 4-4-4 RGB
+ b4c:	83 e0       	ldi	r24, 0x03	; 3
+ b4e:	8f 87       	std	Y+15, r24	; 0x0f
+	SPI_MasterTransmit(transmitByte); // send byte
+ b50:	8f 85       	ldd	r24, Y+15	; 0x0f
+ b52:	96 dd       	rcall	.-1236   	; 0x680 <SPI_MasterTransmit>
+	
+	// Here be were I program the LUT
+	ioport_set_pin_level(TFT_DC, 0);
+ b54:	60 e0       	ldi	r22, 0x00	; 0
+ b56:	88 e0       	ldi	r24, 0x08	; 8
+ b58:	90 e0       	ldi	r25, 0x00	; 0
+ b5a:	c8 dc       	rcall	.-1648   	; 0x4ec <ioport_set_pin_level>
+	transmitByte = 0x2d;  // write command
+ b5c:	8d e2       	ldi	r24, 0x2D	; 45
+ b5e:	8f 87       	std	Y+15, r24	; 0x0f
+	SPI_MasterTransmit(transmitByte); // Sen byte
+ b60:	8f 85       	ldd	r24, Y+15	; 0x0f
+ b62:	8e dd       	rcall	.-1252   	; 0x680 <SPI_MasterTransmit>
+	ioport_set_pin_level(TFT_DC, 1);
+ b64:	61 e0       	ldi	r22, 0x01	; 1
+ b66:	88 e0       	ldi	r24, 0x08	; 8
+ b68:	90 e0       	ldi	r25, 0x00	; 0
+ b6a:	c0 dc       	rcall	.-1664   	; 0x4ec <ioport_set_pin_level>
+	//ioport_set_pin_mode(TFT_CS, IOPORT_MODE_PULLDOWN);
+	for(int i = 0; i <= 0x0f; i++) // Red part1
+ b6c:	1a 82       	std	Y+2, r1	; 0x02
+ b6e:	19 82       	std	Y+1, r1	; 0x01
+ b70:	09 c0       	rjmp	.+18     	; 0xb84 <__stack+0x285>
+	{
+		transmitByte = i;
+ b72:	89 81       	ldd	r24, Y+1	; 0x01
+ b74:	8f 87       	std	Y+15, r24	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ b76:	8f 85       	ldd	r24, Y+15	; 0x0f
+ b78:	83 dd       	rcall	.-1274   	; 0x680 <SPI_MasterTransmit>
+	ioport_set_pin_level(TFT_DC, 0);
+	transmitByte = 0x2d;  // write command
+	SPI_MasterTransmit(transmitByte); // Sen byte
+	ioport_set_pin_level(TFT_DC, 1);
+	//ioport_set_pin_mode(TFT_CS, IOPORT_MODE_PULLDOWN);
+	for(int i = 0; i <= 0x0f; i++) // Red part1
+ b7a:	89 81       	ldd	r24, Y+1	; 0x01
+ b7c:	9a 81       	ldd	r25, Y+2	; 0x02
+ b7e:	01 96       	adiw	r24, 0x01	; 1
+ b80:	9a 83       	std	Y+2, r25	; 0x02
+ b82:	89 83       	std	Y+1, r24	; 0x01
+ b84:	89 81       	ldd	r24, Y+1	; 0x01
+ b86:	9a 81       	ldd	r25, Y+2	; 0x02
+ b88:	40 97       	sbiw	r24, 0x10	; 16
+ b8a:	9c f3       	brlt	.-26     	; 0xb72 <__stack+0x273>
+	{
+		transmitByte = i;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 17; i <= 32; i++) // red part2
+ b8c:	81 e1       	ldi	r24, 0x11	; 17
+ b8e:	90 e0       	ldi	r25, 0x00	; 0
+ b90:	9c 83       	std	Y+4, r25	; 0x04
+ b92:	8b 83       	std	Y+3, r24	; 0x03
+ b94:	08 c0       	rjmp	.+16     	; 0xba6 <__stack+0x2a7>
+	{
+		transmitByte = 0;
+ b96:	1f 86       	std	Y+15, r1	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ b98:	8f 85       	ldd	r24, Y+15	; 0x0f
+ b9a:	72 dd       	rcall	.-1308   	; 0x680 <SPI_MasterTransmit>
+	for(int i = 0; i <= 0x0f; i++) // Red part1
+	{
+		transmitByte = i;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 17; i <= 32; i++) // red part2
+ b9c:	8b 81       	ldd	r24, Y+3	; 0x03
+ b9e:	9c 81       	ldd	r25, Y+4	; 0x04
+ ba0:	01 96       	adiw	r24, 0x01	; 1
+ ba2:	9c 83       	std	Y+4, r25	; 0x04
+ ba4:	8b 83       	std	Y+3, r24	; 0x03
+ ba6:	8b 81       	ldd	r24, Y+3	; 0x03
+ ba8:	9c 81       	ldd	r25, Y+4	; 0x04
+ baa:	81 97       	sbiw	r24, 0x21	; 33
+ bac:	a4 f3       	brlt	.-24     	; 0xb96 <__stack+0x297>
+	{
+		transmitByte = 0;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i <= 0x0f; i++) // green part1
+ bae:	1e 82       	std	Y+6, r1	; 0x06
+ bb0:	1d 82       	std	Y+5, r1	; 0x05
+ bb2:	09 c0       	rjmp	.+18     	; 0xbc6 <__stack+0x2c7>
+	{
+		transmitByte = i;
+ bb4:	8d 81       	ldd	r24, Y+5	; 0x05
+ bb6:	8f 87       	std	Y+15, r24	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ bb8:	8f 85       	ldd	r24, Y+15	; 0x0f
+ bba:	62 dd       	rcall	.-1340   	; 0x680 <SPI_MasterTransmit>
+	for(int i = 17; i <= 32; i++) // red part2
+	{
+		transmitByte = 0;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i <= 0x0f; i++) // green part1
+ bbc:	8d 81       	ldd	r24, Y+5	; 0x05
+ bbe:	9e 81       	ldd	r25, Y+6	; 0x06
+ bc0:	01 96       	adiw	r24, 0x01	; 1
+ bc2:	9e 83       	std	Y+6, r25	; 0x06
+ bc4:	8d 83       	std	Y+5, r24	; 0x05
+ bc6:	8d 81       	ldd	r24, Y+5	; 0x05
+ bc8:	9e 81       	ldd	r25, Y+6	; 0x06
+ bca:	40 97       	sbiw	r24, 0x10	; 16
+ bcc:	9c f3       	brlt	.-26     	; 0xbb4 <__stack+0x2b5>
+	{
+		transmitByte = i;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 49; i <= 96; i++) // green part 2
+ bce:	81 e3       	ldi	r24, 0x31	; 49
+ bd0:	90 e0       	ldi	r25, 0x00	; 0
+ bd2:	98 87       	std	Y+8, r25	; 0x08
+ bd4:	8f 83       	std	Y+7, r24	; 0x07
+ bd6:	08 c0       	rjmp	.+16     	; 0xbe8 <__stack+0x2e9>
+	{
+		transmitByte = 0;
+ bd8:	1f 86       	std	Y+15, r1	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ bda:	8f 85       	ldd	r24, Y+15	; 0x0f
+ bdc:	51 dd       	rcall	.-1374   	; 0x680 <SPI_MasterTransmit>
+	for(int i = 0; i <= 0x0f; i++) // green part1
+	{
+		transmitByte = i;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 49; i <= 96; i++) // green part 2
+ bde:	8f 81       	ldd	r24, Y+7	; 0x07
+ be0:	98 85       	ldd	r25, Y+8	; 0x08
+ be2:	01 96       	adiw	r24, 0x01	; 1
+ be4:	98 87       	std	Y+8, r25	; 0x08
+ be6:	8f 83       	std	Y+7, r24	; 0x07
+ be8:	8f 81       	ldd	r24, Y+7	; 0x07
+ bea:	98 85       	ldd	r25, Y+8	; 0x08
+ bec:	81 36       	cpi	r24, 0x61	; 97
+ bee:	91 05       	cpc	r25, r1
+ bf0:	9c f3       	brlt	.-26     	; 0xbd8 <__stack+0x2d9>
+	{
+		transmitByte = 0;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i <= 0x0f; i++) // Blue part1
+ bf2:	1a 86       	std	Y+10, r1	; 0x0a
+ bf4:	19 86       	std	Y+9, r1	; 0x09
+ bf6:	09 c0       	rjmp	.+18     	; 0xc0a <__stack+0x30b>
+	{
+		transmitByte = i;
+ bf8:	89 85       	ldd	r24, Y+9	; 0x09
+ bfa:	8f 87       	std	Y+15, r24	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ bfc:	8f 85       	ldd	r24, Y+15	; 0x0f
+ bfe:	40 dd       	rcall	.-1408   	; 0x680 <SPI_MasterTransmit>
+	for(int i = 49; i <= 96; i++) // green part 2
+	{
+		transmitByte = 0;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i <= 0x0f; i++) // Blue part1
+ c00:	89 85       	ldd	r24, Y+9	; 0x09
+ c02:	9a 85       	ldd	r25, Y+10	; 0x0a
+ c04:	01 96       	adiw	r24, 0x01	; 1
+ c06:	9a 87       	std	Y+10, r25	; 0x0a
+ c08:	89 87       	std	Y+9, r24	; 0x09
+ c0a:	89 85       	ldd	r24, Y+9	; 0x09
+ c0c:	9a 85       	ldd	r25, Y+10	; 0x0a
+ c0e:	40 97       	sbiw	r24, 0x10	; 16
+ c10:	9c f3       	brlt	.-26     	; 0xbf8 <__stack+0x2f9>
+	{
+		transmitByte = i;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 113; i <= 128; i++) // blue part 2
+ c12:	81 e7       	ldi	r24, 0x71	; 113
+ c14:	90 e0       	ldi	r25, 0x00	; 0
+ c16:	9c 87       	std	Y+12, r25	; 0x0c
+ c18:	8b 87       	std	Y+11, r24	; 0x0b
+ c1a:	08 c0       	rjmp	.+16     	; 0xc2c <__stack+0x32d>
+	{
+		transmitByte = 0;
+ c1c:	1f 86       	std	Y+15, r1	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ c1e:	8f 85       	ldd	r24, Y+15	; 0x0f
+ c20:	2f dd       	rcall	.-1442   	; 0x680 <SPI_MasterTransmit>
+	for(int i = 0; i <= 0x0f; i++) // Blue part1
+	{
+		transmitByte = i;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 113; i <= 128; i++) // blue part 2
+ c22:	8b 85       	ldd	r24, Y+11	; 0x0b
+ c24:	9c 85       	ldd	r25, Y+12	; 0x0c
+ c26:	01 96       	adiw	r24, 0x01	; 1
+ c28:	9c 87       	std	Y+12, r25	; 0x0c
+ c2a:	8b 87       	std	Y+11, r24	; 0x0b
+ c2c:	8b 85       	ldd	r24, Y+11	; 0x0b
+ c2e:	9c 85       	ldd	r25, Y+12	; 0x0c
+ c30:	81 38       	cpi	r24, 0x81	; 129
+ c32:	91 05       	cpc	r25, r1
+ c34:	9c f3       	brlt	.-26     	; 0xc1c <__stack+0x31d>
+	{
+		transmitByte = 0;
+		SPI_MasterTransmit(transmitByte);
+	}
+
+	ioport_set_pin_level(TFT_DC, 0);
+ c36:	60 e0       	ldi	r22, 0x00	; 0
+ c38:	88 e0       	ldi	r24, 0x08	; 8
+ c3a:	90 e0       	ldi	r25, 0x00	; 0
+ c3c:	57 dc       	rcall	.-1874   	; 0x4ec <ioport_set_pin_level>
+	transmitByte = 0x2c;  // write command
+ c3e:	8c e2       	ldi	r24, 0x2C	; 44
+ c40:	8f 87       	std	Y+15, r24	; 0x0f
+	SPI_MasterTransmit(transmitByte); // Send byte
+ c42:	8f 85       	ldd	r24, Y+15	; 0x0f
+ c44:	1d dd       	rcall	.-1478   	; 0x680 <SPI_MasterTransmit>
+	ioport_set_pin_level(TFT_DC, 1);
+ c46:	61 e0       	ldi	r22, 0x01	; 1
+ c48:	88 e0       	ldi	r24, 0x08	; 8
+ c4a:	90 e0       	ldi	r25, 0x00	; 0
+ c4c:	4f dc       	rcall	.-1890   	; 0x4ec <ioport_set_pin_level>
+	
+	for (int i = 0; i <= 8192; i++) // once for every three bytes
+ c4e:	1e 86       	std	Y+14, r1	; 0x0e
+ c50:	1d 86       	std	Y+13, r1	; 0x0d
+ c52:	10 c0       	rjmp	.+32     	; 0xc74 <__stack+0x375>
+	{
+		transmitByte = 0xf0;
+ c54:	80 ef       	ldi	r24, 0xF0	; 240
+ c56:	8f 87       	std	Y+15, r24	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ c58:	8f 85       	ldd	r24, Y+15	; 0x0f
+ c5a:	12 dd       	rcall	.-1500   	; 0x680 <SPI_MasterTransmit>
+		transmitByte = 0x0f;
+ c5c:	8f e0       	ldi	r24, 0x0F	; 15
+ c5e:	8f 87       	std	Y+15, r24	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ c60:	8f 85       	ldd	r24, Y+15	; 0x0f
+ c62:	0e dd       	rcall	.-1508   	; 0x680 <SPI_MasterTransmit>
+		transmitByte = 0x00;
+ c64:	1f 86       	std	Y+15, r1	; 0x0f
+		SPI_MasterTransmit(transmitByte);
+ c66:	8f 85       	ldd	r24, Y+15	; 0x0f
+ c68:	0b dd       	rcall	.-1514   	; 0x680 <SPI_MasterTransmit>
+	ioport_set_pin_level(TFT_DC, 0);
+	transmitByte = 0x2c;  // write command
+	SPI_MasterTransmit(transmitByte); // Send byte
+	ioport_set_pin_level(TFT_DC, 1);
+	
+	for (int i = 0; i <= 8192; i++) // once for every three bytes
+ c6a:	8d 85       	ldd	r24, Y+13	; 0x0d
+ c6c:	9e 85       	ldd	r25, Y+14	; 0x0e
+ c6e:	01 96       	adiw	r24, 0x01	; 1
+ c70:	9e 87       	std	Y+14, r25	; 0x0e
+ c72:	8d 87       	std	Y+13, r24	; 0x0d
+ c74:	8d 85       	ldd	r24, Y+13	; 0x0d
+ c76:	9e 85       	ldd	r25, Y+14	; 0x0e
+ c78:	81 30       	cpi	r24, 0x01	; 1
+ c7a:	90 42       	sbci	r25, 0x20	; 32
+ c7c:	5c f3       	brlt	.-42     	; 0xc54 <__stack+0x355>
+		SPI_MasterTransmit(transmitByte);
+		//display[i*3    ] = 0xf0;
+		//display[i*3 + 1] = 0x0f;
+		//display[i*3 + 2] = 0x00;	
+	}
+	ioport_set_pin_level(TFT_DC, 0);
+ c7e:	60 e0       	ldi	r22, 0x00	; 0
+ c80:	88 e0       	ldi	r24, 0x08	; 8
+ c82:	90 e0       	ldi	r25, 0x00	; 0
+ c84:	33 dc       	rcall	.-1946   	; 0x4ec <ioport_set_pin_level>
+	transmitByte = 0x13;
+ c86:	83 e1       	ldi	r24, 0x13	; 19
+ c88:	8f 87       	std	Y+15, r24	; 0x0f
+	SPI_MasterTransmit(transmitByte);
+ c8a:	8f 85       	ldd	r24, Y+15	; 0x0f
+ c8c:	f9 dc       	rcall	.-1550   	; 0x680 <SPI_MasterTransmit>
+	ioport_set_pin_level(TFT_CS, 1);
+ c8e:	61 e0       	ldi	r22, 0x01	; 1
+ c90:	8e e1       	ldi	r24, 0x1E	; 30
+ c92:	90 e0       	ldi	r25, 0x00	; 0
+ c94:	2b dc       	rcall	.-1962   	; 0x4ec <ioport_set_pin_level>
+	while(1){
+		button_state = ioport_get_pin_level(GPIO_PUSH_BUTTON_0);
+ c96:	8f e0       	ldi	r24, 0x0F	; 15
+ c98:	90 e0       	ldi	r25, 0x00	; 0
+ c9a:	92 dc       	rcall	.-1756   	; 0x5c0 <ioport_get_pin_level>
+ c9c:	88 8b       	std	Y+16, r24	; 0x10
+		if(button_state){
+ c9e:	88 89       	ldd	r24, Y+16	; 0x10
+ ca0:	88 23       	and	r24, r24
+ ca2:	21 f4       	brne	.+8      	; 0xcac <__stack+0x3ad>
+				//LED_Off(LED0);
+			}else{
+				//LED_On(LED0);
+				// Turns on back light :-)
+				ioport_set_pin_mode(BACK_LIGHT, IOPORT_MODE_PULLUP);
+ ca4:	60 e0       	ldi	r22, 0x00	; 0
+ ca6:	89 e0       	ldi	r24, 0x09	; 9
+ ca8:	90 e0       	ldi	r25, 0x00	; 0
+ caa:	3f db       	rcall	.-2434   	; 0x32a <ioport_set_pin_mode>
+			}
+		}
+ cac:	f4 cf       	rjmp	.-24     	; 0xc96 <__stack+0x397>
+
+00000cae <__cmpsf2>:
+ cae:	2f d0       	rcall	.+94     	; 0xd0e <__fp_cmp>
+ cb0:	08 f4       	brcc	.+2      	; 0xcb4 <__cmpsf2+0x6>
+ cb2:	81 e0       	ldi	r24, 0x01	; 1
+ cb4:	08 95       	ret
+
+00000cb6 <__fixunssfsi>:
+ cb6:	57 d0       	rcall	.+174    	; 0xd66 <__fp_splitA>
+ cb8:	88 f0       	brcs	.+34     	; 0xcdc <__fixunssfsi+0x26>
+ cba:	9f 57       	subi	r25, 0x7F	; 127
+ cbc:	90 f0       	brcs	.+36     	; 0xce2 <__fixunssfsi+0x2c>
+ cbe:	b9 2f       	mov	r27, r25
+ cc0:	99 27       	eor	r25, r25
+ cc2:	b7 51       	subi	r27, 0x17	; 23
+ cc4:	a0 f0       	brcs	.+40     	; 0xcee <__fixunssfsi+0x38>
+ cc6:	d1 f0       	breq	.+52     	; 0xcfc <__fixunssfsi+0x46>
+ cc8:	66 0f       	add	r22, r22
+ cca:	77 1f       	adc	r23, r23
+ ccc:	88 1f       	adc	r24, r24
+ cce:	99 1f       	adc	r25, r25
+ cd0:	1a f0       	brmi	.+6      	; 0xcd8 <__fixunssfsi+0x22>
+ cd2:	ba 95       	dec	r27
+ cd4:	c9 f7       	brne	.-14     	; 0xcc8 <__fixunssfsi+0x12>
+ cd6:	12 c0       	rjmp	.+36     	; 0xcfc <__fixunssfsi+0x46>
+ cd8:	b1 30       	cpi	r27, 0x01	; 1
+ cda:	81 f0       	breq	.+32     	; 0xcfc <__fixunssfsi+0x46>
+ cdc:	5e d0       	rcall	.+188    	; 0xd9a <__fp_zero>
+ cde:	b1 e0       	ldi	r27, 0x01	; 1
+ ce0:	08 95       	ret
+ ce2:	5b c0       	rjmp	.+182    	; 0xd9a <__fp_zero>
+ ce4:	67 2f       	mov	r22, r23
+ ce6:	78 2f       	mov	r23, r24
+ ce8:	88 27       	eor	r24, r24
+ cea:	b8 5f       	subi	r27, 0xF8	; 248
+ cec:	39 f0       	breq	.+14     	; 0xcfc <__fixunssfsi+0x46>
+ cee:	b9 3f       	cpi	r27, 0xF9	; 249
+ cf0:	cc f3       	brlt	.-14     	; 0xce4 <__fixunssfsi+0x2e>
+ cf2:	86 95       	lsr	r24
+ cf4:	77 95       	ror	r23
+ cf6:	67 95       	ror	r22
+ cf8:	b3 95       	inc	r27
+ cfa:	d9 f7       	brne	.-10     	; 0xcf2 <__fixunssfsi+0x3c>
+ cfc:	3e f4       	brtc	.+14     	; 0xd0c <__fixunssfsi+0x56>
+ cfe:	90 95       	com	r25
+ d00:	80 95       	com	r24
+ d02:	70 95       	com	r23
+ d04:	61 95       	neg	r22
+ d06:	7f 4f       	sbci	r23, 0xFF	; 255
+ d08:	8f 4f       	sbci	r24, 0xFF	; 255
+ d0a:	9f 4f       	sbci	r25, 0xFF	; 255
+ d0c:	08 95       	ret
+
+00000d0e <__fp_cmp>:
+ d0e:	99 0f       	add	r25, r25
+ d10:	00 08       	sbc	r0, r0
+ d12:	55 0f       	add	r21, r21
+ d14:	aa 0b       	sbc	r26, r26
+ d16:	e0 e8       	ldi	r30, 0x80	; 128
+ d18:	fe ef       	ldi	r31, 0xFE	; 254
+ d1a:	16 16       	cp	r1, r22
+ d1c:	17 06       	cpc	r1, r23
+ d1e:	e8 07       	cpc	r30, r24
+ d20:	f9 07       	cpc	r31, r25
+ d22:	c0 f0       	brcs	.+48     	; 0xd54 <__fp_cmp+0x46>
+ d24:	12 16       	cp	r1, r18
+ d26:	13 06       	cpc	r1, r19
+ d28:	e4 07       	cpc	r30, r20
+ d2a:	f5 07       	cpc	r31, r21
+ d2c:	98 f0       	brcs	.+38     	; 0xd54 <__fp_cmp+0x46>
+ d2e:	62 1b       	sub	r22, r18
+ d30:	73 0b       	sbc	r23, r19
+ d32:	84 0b       	sbc	r24, r20
+ d34:	95 0b       	sbc	r25, r21
+ d36:	39 f4       	brne	.+14     	; 0xd46 <__fp_cmp+0x38>
+ d38:	0a 26       	eor	r0, r26
+ d3a:	61 f0       	breq	.+24     	; 0xd54 <__fp_cmp+0x46>
+ d3c:	23 2b       	or	r18, r19
+ d3e:	24 2b       	or	r18, r20
+ d40:	25 2b       	or	r18, r21
+ d42:	21 f4       	brne	.+8      	; 0xd4c <__fp_cmp+0x3e>
+ d44:	08 95       	ret
+ d46:	0a 26       	eor	r0, r26
+ d48:	09 f4       	brne	.+2      	; 0xd4c <__fp_cmp+0x3e>
+ d4a:	a1 40       	sbci	r26, 0x01	; 1
+ d4c:	a6 95       	lsr	r26
+ d4e:	8f ef       	ldi	r24, 0xFF	; 255
+ d50:	81 1d       	adc	r24, r1
+ d52:	81 1d       	adc	r24, r1
+ d54:	08 95       	ret
+
+00000d56 <__fp_split3>:
+ d56:	57 fd       	sbrc	r21, 7
+ d58:	90 58       	subi	r25, 0x80	; 128
+ d5a:	44 0f       	add	r20, r20
+ d5c:	55 1f       	adc	r21, r21
+ d5e:	59 f0       	breq	.+22     	; 0xd76 <__fp_splitA+0x10>
+ d60:	5f 3f       	cpi	r21, 0xFF	; 255
+ d62:	71 f0       	breq	.+28     	; 0xd80 <__fp_splitA+0x1a>
+ d64:	47 95       	ror	r20
+
+00000d66 <__fp_splitA>:
+ d66:	88 0f       	add	r24, r24
+ d68:	97 fb       	bst	r25, 7
+ d6a:	99 1f       	adc	r25, r25
+ d6c:	61 f0       	breq	.+24     	; 0xd86 <__fp_splitA+0x20>
+ d6e:	9f 3f       	cpi	r25, 0xFF	; 255
+ d70:	79 f0       	breq	.+30     	; 0xd90 <__fp_splitA+0x2a>
+ d72:	87 95       	ror	r24
+ d74:	08 95       	ret
+ d76:	12 16       	cp	r1, r18
+ d78:	13 06       	cpc	r1, r19
+ d7a:	14 06       	cpc	r1, r20
+ d7c:	55 1f       	adc	r21, r21
+ d7e:	f2 cf       	rjmp	.-28     	; 0xd64 <__fp_split3+0xe>
+ d80:	46 95       	lsr	r20
+ d82:	f1 df       	rcall	.-30     	; 0xd66 <__fp_splitA>
+ d84:	08 c0       	rjmp	.+16     	; 0xd96 <__fp_splitA+0x30>
+ d86:	16 16       	cp	r1, r22
+ d88:	17 06       	cpc	r1, r23
+ d8a:	18 06       	cpc	r1, r24
+ d8c:	99 1f       	adc	r25, r25
+ d8e:	f1 cf       	rjmp	.-30     	; 0xd72 <__fp_splitA+0xc>
+ d90:	86 95       	lsr	r24
+ d92:	71 05       	cpc	r23, r1
+ d94:	61 05       	cpc	r22, r1
+ d96:	08 94       	sec
+ d98:	08 95       	ret
+
+00000d9a <__fp_zero>:
+ d9a:	e8 94       	clt
+
+00000d9c <__fp_szero>:
+ d9c:	bb 27       	eor	r27, r27
+ d9e:	66 27       	eor	r22, r22
+ da0:	77 27       	eor	r23, r23
+ da2:	cb 01       	movw	r24, r22
+ da4:	97 f9       	bld	r25, 7
+ da6:	08 95       	ret
+
+00000da8 <__gesf2>:
+ da8:	b2 df       	rcall	.-156    	; 0xd0e <__fp_cmp>
+ daa:	08 f4       	brcc	.+2      	; 0xdae <__gesf2+0x6>
+ dac:	8f ef       	ldi	r24, 0xFF	; 255
+ dae:	08 95       	ret
+
+00000db0 <__mulsf3>:
+ db0:	0b d0       	rcall	.+22     	; 0xdc8 <__mulsf3x>
+ db2:	78 c0       	rjmp	.+240    	; 0xea4 <__fp_round>
+ db4:	69 d0       	rcall	.+210    	; 0xe88 <__fp_pscA>
+ db6:	28 f0       	brcs	.+10     	; 0xdc2 <__mulsf3+0x12>
+ db8:	6e d0       	rcall	.+220    	; 0xe96 <__fp_pscB>
+ dba:	18 f0       	brcs	.+6      	; 0xdc2 <__mulsf3+0x12>
+ dbc:	95 23       	and	r25, r21
+ dbe:	09 f0       	breq	.+2      	; 0xdc2 <__mulsf3+0x12>
+ dc0:	5a c0       	rjmp	.+180    	; 0xe76 <__fp_inf>
+ dc2:	5f c0       	rjmp	.+190    	; 0xe82 <__fp_nan>
+ dc4:	11 24       	eor	r1, r1
+ dc6:	ea cf       	rjmp	.-44     	; 0xd9c <__fp_szero>
+
+00000dc8 <__mulsf3x>:
+ dc8:	c6 df       	rcall	.-116    	; 0xd56 <__fp_split3>
+ dca:	a0 f3       	brcs	.-24     	; 0xdb4 <__mulsf3+0x4>
+
+00000dcc <__mulsf3_pse>:
+ dcc:	95 9f       	mul	r25, r21
+ dce:	d1 f3       	breq	.-12     	; 0xdc4 <__mulsf3+0x14>
+ dd0:	95 0f       	add	r25, r21
+ dd2:	50 e0       	ldi	r21, 0x00	; 0
+ dd4:	55 1f       	adc	r21, r21
+ dd6:	62 9f       	mul	r22, r18
+ dd8:	f0 01       	movw	r30, r0
+ dda:	72 9f       	mul	r23, r18
+ ddc:	bb 27       	eor	r27, r27
+ dde:	f0 0d       	add	r31, r0
+ de0:	b1 1d       	adc	r27, r1
+ de2:	63 9f       	mul	r22, r19
+ de4:	aa 27       	eor	r26, r26
+ de6:	f0 0d       	add	r31, r0
+ de8:	b1 1d       	adc	r27, r1
+ dea:	aa 1f       	adc	r26, r26
+ dec:	64 9f       	mul	r22, r20
+ dee:	66 27       	eor	r22, r22
+ df0:	b0 0d       	add	r27, r0
+ df2:	a1 1d       	adc	r26, r1
+ df4:	66 1f       	adc	r22, r22
+ df6:	82 9f       	mul	r24, r18
+ df8:	22 27       	eor	r18, r18
+ dfa:	b0 0d       	add	r27, r0
+ dfc:	a1 1d       	adc	r26, r1
+ dfe:	62 1f       	adc	r22, r18
+ e00:	73 9f       	mul	r23, r19
+ e02:	b0 0d       	add	r27, r0
+ e04:	a1 1d       	adc	r26, r1
+ e06:	62 1f       	adc	r22, r18
+ e08:	83 9f       	mul	r24, r19
+ e0a:	a0 0d       	add	r26, r0
+ e0c:	61 1d       	adc	r22, r1
+ e0e:	22 1f       	adc	r18, r18
+ e10:	74 9f       	mul	r23, r20
+ e12:	33 27       	eor	r19, r19
+ e14:	a0 0d       	add	r26, r0
+ e16:	61 1d       	adc	r22, r1
+ e18:	23 1f       	adc	r18, r19
+ e1a:	84 9f       	mul	r24, r20
+ e1c:	60 0d       	add	r22, r0
+ e1e:	21 1d       	adc	r18, r1
+ e20:	82 2f       	mov	r24, r18
+ e22:	76 2f       	mov	r23, r22
+ e24:	6a 2f       	mov	r22, r26
+ e26:	11 24       	eor	r1, r1
+ e28:	9f 57       	subi	r25, 0x7F	; 127
+ e2a:	50 40       	sbci	r21, 0x00	; 0
+ e2c:	8a f0       	brmi	.+34     	; 0xe50 <__mulsf3_pse+0x84>
+ e2e:	e1 f0       	breq	.+56     	; 0xe68 <__mulsf3_pse+0x9c>
+ e30:	88 23       	and	r24, r24
+ e32:	4a f0       	brmi	.+18     	; 0xe46 <__mulsf3_pse+0x7a>
+ e34:	ee 0f       	add	r30, r30
+ e36:	ff 1f       	adc	r31, r31
+ e38:	bb 1f       	adc	r27, r27
+ e3a:	66 1f       	adc	r22, r22
+ e3c:	77 1f       	adc	r23, r23
+ e3e:	88 1f       	adc	r24, r24
+ e40:	91 50       	subi	r25, 0x01	; 1
+ e42:	50 40       	sbci	r21, 0x00	; 0
+ e44:	a9 f7       	brne	.-22     	; 0xe30 <__mulsf3_pse+0x64>
+ e46:	9e 3f       	cpi	r25, 0xFE	; 254
+ e48:	51 05       	cpc	r21, r1
+ e4a:	70 f0       	brcs	.+28     	; 0xe68 <__mulsf3_pse+0x9c>
+ e4c:	14 c0       	rjmp	.+40     	; 0xe76 <__fp_inf>
+ e4e:	a6 cf       	rjmp	.-180    	; 0xd9c <__fp_szero>
+ e50:	5f 3f       	cpi	r21, 0xFF	; 255
+ e52:	ec f3       	brlt	.-6      	; 0xe4e <__mulsf3_pse+0x82>
+ e54:	98 3e       	cpi	r25, 0xE8	; 232
+ e56:	dc f3       	brlt	.-10     	; 0xe4e <__mulsf3_pse+0x82>
+ e58:	86 95       	lsr	r24
+ e5a:	77 95       	ror	r23
+ e5c:	67 95       	ror	r22
+ e5e:	b7 95       	ror	r27
+ e60:	f7 95       	ror	r31
+ e62:	e7 95       	ror	r30
+ e64:	9f 5f       	subi	r25, 0xFF	; 255
+ e66:	c1 f7       	brne	.-16     	; 0xe58 <__mulsf3_pse+0x8c>
+ e68:	fe 2b       	or	r31, r30
+ e6a:	88 0f       	add	r24, r24
+ e6c:	91 1d       	adc	r25, r1
+ e6e:	96 95       	lsr	r25
+ e70:	87 95       	ror	r24
+ e72:	97 f9       	bld	r25, 7
+ e74:	08 95       	ret
+
+00000e76 <__fp_inf>:
+ e76:	97 f9       	bld	r25, 7
+ e78:	9f 67       	ori	r25, 0x7F	; 127
+ e7a:	80 e8       	ldi	r24, 0x80	; 128
+ e7c:	70 e0       	ldi	r23, 0x00	; 0
+ e7e:	60 e0       	ldi	r22, 0x00	; 0
+ e80:	08 95       	ret
+
+00000e82 <__fp_nan>:
+ e82:	9f ef       	ldi	r25, 0xFF	; 255
+ e84:	80 ec       	ldi	r24, 0xC0	; 192
+ e86:	08 95       	ret
+
+00000e88 <__fp_pscA>:
+ e88:	00 24       	eor	r0, r0
+ e8a:	0a 94       	dec	r0
+ e8c:	16 16       	cp	r1, r22
+ e8e:	17 06       	cpc	r1, r23
+ e90:	18 06       	cpc	r1, r24
+ e92:	09 06       	cpc	r0, r25
+ e94:	08 95       	ret
+
+00000e96 <__fp_pscB>:
+ e96:	00 24       	eor	r0, r0
+ e98:	0a 94       	dec	r0
+ e9a:	12 16       	cp	r1, r18
+ e9c:	13 06       	cpc	r1, r19
+ e9e:	14 06       	cpc	r1, r20
+ ea0:	05 06       	cpc	r0, r21
+ ea2:	08 95       	ret
+
+00000ea4 <__fp_round>:
+ ea4:	09 2e       	mov	r0, r25
+ ea6:	03 94       	inc	r0
+ ea8:	00 0c       	add	r0, r0
+ eaa:	11 f4       	brne	.+4      	; 0xeb0 <__fp_round+0xc>
+ eac:	88 23       	and	r24, r24
+ eae:	52 f0       	brmi	.+20     	; 0xec4 <__fp_round+0x20>
+ eb0:	bb 0f       	add	r27, r27
+ eb2:	40 f4       	brcc	.+16     	; 0xec4 <__fp_round+0x20>
+ eb4:	bf 2b       	or	r27, r31
+ eb6:	11 f4       	brne	.+4      	; 0xebc <__fp_round+0x18>
+ eb8:	60 ff       	sbrs	r22, 0
+ eba:	04 c0       	rjmp	.+8      	; 0xec4 <__fp_round+0x20>
+ ebc:	6f 5f       	subi	r22, 0xFF	; 255
+ ebe:	7f 4f       	sbci	r23, 0xFF	; 255
+ ec0:	8f 4f       	sbci	r24, 0xFF	; 255
+ ec2:	9f 4f       	sbci	r25, 0xFF	; 255
+ ec4:	08 95       	ret
+
+00000ec6 <_exit>:
+ ec6:	f8 94       	cli
+
+00000ec8 <__stop_program>:
+ ec8:	ff cf       	rjmp	.-2      	; 0xec8 <__stop_program>
