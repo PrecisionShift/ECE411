@@ -38,17 +38,17 @@
 #define TFT_CS			IOPORT_CREATE_PIN(PORTD, 6)
 #define CARD_CS			IOPORT_CREATE_PIN(PORTD, 5)
 #define SS_PIN			IOPORT_CREATE_PIN(PORTB, 2)
-//#define CARD_CS			IOPORT_CREATE_PIN(PORTB, 2)
+
 
 
 // From page 218 of data sheet
 void SPI_MasterInit(void)
 {
 	/* Set MOSI and SCK output, all others input */
-	DDRB = (1<<DDB3)|(1<<DDB5)|(1<<DDB2); // modified to make SS output
+	DDRB = (1<<DDB3)|(1<<DDB5);//|(1<<DDB2); // modified to make SS output
 	
 	// To prevent it from getting pulled out of Master mode
-	//ioport_set_pin_mode(SS_PIN, IOPORT_MODE_PULLUP);
+	ioport_set_pin_mode(SS_PIN, IOPORT_MODE_PULLUP);
 	
 	/* Enable SPI, Master, set clock rate fck/16 */
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
@@ -76,8 +76,8 @@ int main (void)
 	uint8_t transmitByte;
 	uint8_t display[24576];
 	
-	//board_init();
-	//ioport_init();
+	board_init();
+	ioport_init();
 
 	SPI_MasterInit();
 	
@@ -91,17 +91,21 @@ int main (void)
 	
 	ioport_set_pin_level(TFT_DC, 0);
 	ioport_set_pin_level(TFT_CS, 1);  // serial interface initializes when CS is high pg 33
-	
+	ioport_set_pin_level(CARD_CS, 1);  // Turn off card 
+
 	ioport_set_pin_level(TFT_RST, 0);
 	_delay_ms(5);
 	ioport_set_pin_level(TFT_RST, 1);
 	_delay_ms(5);
 
-	ioport_set_pin_level(TFT_CS, 0);
-	ioport_set_pin_level(TFT_DC, 0);
-	
+	ioport_set_pin_level(TFT_CS, 0); // active low
+	ioport_set_pin_level(TFT_DC, 0); // active low
 
-	transmitByte = 0x04; // Color mode
+	transmitByte = 0x29; // Turn on command
+	SPI_MasterTransmit(transmitByte);
+
+	// failed attempt to read from display
+	/*transmitByte = 0x04; 
 	SPI_MasterTransmit(transmitByte);
 	ioport_set_pin_level(TFT_DC, 1);
 	uint8_t temp;
@@ -109,7 +113,7 @@ int main (void)
 	{
 		temp = SPDR;
 	}
-	
+	*/
 
 
 	transmitByte = 0x3a; // Color mode
@@ -190,5 +194,5 @@ int main (void)
 			//SPI_MasterTransmit(transmitBit);
 			}
 			}
-			return temp;
+			return 0;
 }
