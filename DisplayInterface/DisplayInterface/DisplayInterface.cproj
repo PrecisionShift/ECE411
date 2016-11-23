@@ -159,63 +159,63 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"</avrgcc.common.Device>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>BOARD=ATMEGA328P_XPLAINED_MINI</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/mega/utils/preprocessor</Value>
-      <Value>../src/ASF/mega/utils</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src/ASF/mega/boards</Value>
-      <Value>../src/ASF/mega/boards/atmega328p_xplained_mini</Value>
-      <Value>../src/ASF/common/services/gpio</Value>
-      <Value>../src/ASF/common/services/ioport</Value>
-      <Value>../src</Value>
-      <Value>../src/config</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.OtherFlags>-fdata-sections</avrgcc.compiler.optimization.OtherFlags>
-  <avrgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>False</avrgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <avrgcc.compiler.optimization.PrepareDataForGarbageCollection>False</avrgcc.compiler.optimization.PrepareDataForGarbageCollection>
-  <avrgcc.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax</avrgcc.compiler.miscellaneous.OtherFlags>
-  <avrgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcc.linker.libraries.Libraries>
-  <avrgcc.linker.miscellaneous.LinkerFlags>-Wl,--relax</avrgcc.linker.miscellaneous.LinkerFlags>
-  <avrgcc.assembler.general.AssemblerFlags>-mrelax -DBOARD=ATMEGA328P_XPLAINED_MINI</avrgcc.assembler.general.AssemblerFlags>
-  <avrgcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/mega/utils/preprocessor</Value>
-      <Value>../src/ASF/mega/utils</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src/ASF/mega/boards</Value>
-      <Value>../src/ASF/mega/boards/atmega328p_xplained_mini</Value>
-      <Value>../src/ASF/common/services/gpio</Value>
-      <Value>../src/ASF/common/services/ioport</Value>
-      <Value>../src</Value>
-      <Value>../src/config</Value>
-    </ListValues>
-  </avrgcc.assembler.general.IncludePaths>
-  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
-</AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega328p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega328p"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>BOARD=ATMEGA328P_XPLAINED_MINI</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/mega/utils/preprocessor</Value>
+            <Value>../src/ASF/mega/utils</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src/ASF/mega/boards</Value>
+            <Value>../src/ASF/mega/boards/atmega328p_xplained_mini</Value>
+            <Value>../src/ASF/common/services/gpio</Value>
+            <Value>../src/ASF/common/services/ioport</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.OtherFlags>-fdata-sections</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>False</avrgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <avrgcc.compiler.optimization.PrepareDataForGarbageCollection>False</avrgcc.compiler.optimization.PrepareDataForGarbageCollection>
+        <avrgcc.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.linker.miscellaneous.LinkerFlags>-Wl,--relax</avrgcc.linker.miscellaneous.LinkerFlags>
+        <avrgcc.assembler.general.AssemblerFlags>-mrelax -DBOARD=ATMEGA328P_XPLAINED_MINI</avrgcc.assembler.general.AssemblerFlags>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/mega/utils/preprocessor</Value>
+            <Value>../src/ASF/mega/utils</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src/ASF/mega/boards</Value>
+            <Value>../src/ASF/mega/boards/atmega328p_xplained_mini</Value>
+            <Value>../src/ASF/common/services/gpio</Value>
+            <Value>../src/ASF/common/services/ioport</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>

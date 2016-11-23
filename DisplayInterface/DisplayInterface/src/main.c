@@ -38,9 +38,9 @@
 #define TFT_CS			IOPORT_CREATE_PIN(PORTD, 6)
 #define CARD_CS			IOPORT_CREATE_PIN(PORTD, 5)
 #define SS_PIN			IOPORT_CREATE_PIN(PORTB, 2)
-
-
-
+#define WIDTH			132
+#define LENGTH			130
+#define START_OFFSET	1
 // From page 218 of data sheet
 void SPI_MasterInit(void)
 {
@@ -105,9 +105,13 @@ int main (void)
 	_delay_ms(500);
 	ioport_set_pin_level(TFT_CS, 0); // active low
 	ioport_set_pin_level(TFT_DC, 0); // active low
-
+	
 	transmitByte = 0x29; // Turn on command
 	SPI_MasterTransmit(transmitByte);
+	_delay_ms(500);
+	transmitByte = 0x11; // Turn off sleep
+	SPI_MasterTransmit(transmitByte);
+	_delay_ms(500);
 
 	// failed attempt to read from display
 	/*transmitByte = 0x04; 
@@ -164,22 +168,91 @@ int main (void)
 		SPI_MasterTransmit(transmitByte);
 	}
 
+	_delay_ms(500);
+	
 	ioport_set_pin_level(TFT_DC, 0);
 	transmitByte = 0x2c;  // write command
 	SPI_MasterTransmit(transmitByte); // Send byte
 	ioport_set_pin_level(TFT_DC, 1);
 	
-	for (int i = 0; i <= 8192; i++) // once for every three bytes
+	// to fix rgb order
+	//transmitByte = 0xff;
+	//SPI_MasterTransmit(transmitByte);
+	
+	for (int i = 0; i < WIDTH*LENGTH; i++) // once for every three bytes
 	{
-		transmitByte = 0xf0;
+		transmitByte = 0x00;
 		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x0f;
+		transmitByte = 0x00;
 		SPI_MasterTransmit(transmitByte);
 		transmitByte = 0x00;
 		SPI_MasterTransmit(transmitByte);
 		//display[i*3    ] = 0xf0;
 		//display[i*3 + 1] = 0x0f;
 		//display[i*3 + 2] = 0x00;	
+	}
+	for (int i = 0; i < WIDTH*START_OFFSET; i++) // once for every three bytes
+	{
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+		//display[i*3    ] = 0xf0;
+		//display[i*3 + 1] = 0x0f;
+		//display[i*3 + 2] = 0x00;
+	}
+	//blue
+	for (int i = 0; i < WIDTH*3; i++) // once for every three bytes
+	{
+		transmitByte = 0xf1;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x1f;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x11;
+		SPI_MasterTransmit(transmitByte);
+		//display[i*3    ] = 0xf0;
+		//display[i*3 + 1] = 0x0f;
+		//display[i*3 + 2] = 0x00;
+	}
+	//green
+	for (int i = 0; i < WIDTH*3; i++) // once for every three bytes
+	{
+		transmitByte = 0x1f;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x11;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xf1;
+		SPI_MasterTransmit(transmitByte);
+		//display[i*3    ] = 0xf0;
+		//display[i*3 + 1] = 0x0f;
+		//display[i*3 + 2] = 0x00;
+	}
+	//red
+	for (int i = 0; i < WIDTH*3; i++) // once for every three bytes
+	{
+		transmitByte = 0x11;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xf1;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x1f;
+		SPI_MasterTransmit(transmitByte);
+		//display[i*3    ] = 0xf0;
+		//display[i*3 + 1] = 0x0f;
+		//display[i*3 + 2] = 0x00;
+	}
+	for (int i = 0; i < WIDTH*12; i++) // once for every three bytes
+	{
+		transmitByte = 0xFc;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x2F;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xc2;
+		SPI_MasterTransmit(transmitByte);
+		//display[i*3    ] = 0xf0;
+		//display[i*3 + 1] = 0x0f;
+		//display[i*3 + 2] = 0x00;
 	}
 	ioport_set_pin_level(TFT_DC, 0);
 	transmitByte = 0x13;
