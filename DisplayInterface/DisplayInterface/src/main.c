@@ -38,33 +38,16 @@
 #define TFT_CS			IOPORT_CREATE_PIN(PORTD, 6)
 #define CARD_CS			IOPORT_CREATE_PIN(PORTD, 5)
 #define SS_PIN			IOPORT_CREATE_PIN(PORTB, 2)
-#define WIDTH			132
-#define LENGTH			130
+#define WIDTH			131
+#define LENGTH			131
 #define START_OFFSET	1
 // From page 218 of data sheet
-void SPI_MasterInit(void)
-{
-	/* Set MOSI and SCK output, all others input */
-	DDRB = (1<<DDB3)|(1<<DDB5);//|(1<<DDB2); // modified to make SS output
-	
-	// To prevent it from getting pulled out of Master mode
-	ioport_set_pin_mode(SS_PIN, IOPORT_MODE_PULLUP);
-	
-	/* Enable SPI, Master, set clock rate fck/16 */
-	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
-}
 
-// from page 218 of data sheet
-void SPI_MasterTransmit(uint8_t cData)
-{
-	
-	/* Start transmission */
-	SPDR = cData;
-	/* Wait for transmission complete */
-	while(!(SPSR & (1<<SPIF)))
-	;
-}
-
+// function declarations
+void SPI_MasterInit(void);
+void SPI_MasterTransmit(uint8_t cData);
+void tpFlag(void);
+void smileFace(void);
 
 int main (void)
 {
@@ -81,7 +64,171 @@ int main (void)
 
 	SPI_MasterInit();
 
+	// Turns on back light :-)
+	ioport_set_pin_mode(BACK_LIGHT, IOPORT_MODE_PULLUP);
+	tpFlag();	
+	
+	while(1){
+		button_state = ioport_get_pin_level(GPIO_PUSH_BUTTON_0);
+		if(button_state){
+				//LED_Off(LED0);
+			}else{
+				//LED_On(LED0);
+				smileFace();
+			}
+		}
+	return 0;
+}
+
+void tpFlag(void)
+{
+uint8_t transmitByte = 0;
+ioport_set_pin_level(TFT_DC, 0);
+transmitByte = 0x2c;  // write command
+SPI_MasterTransmit(transmitByte); // Send byte
+ioport_set_pin_level(TFT_DC, 1);
+
+
+
+for (int j = 0; j < LENGTH; j++) // once for every three bytes
+{
+	for(int i = 0; i < WIDTH/10; i++)
+	{
+		transmitByte = 0xfc;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x2f;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xc2;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i < WIDTH/10; i++)
+	{
+		transmitByte = 0xba;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xfb;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xaf;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i < (WIDTH/10 + 1 ); i++)
+	{
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i < WIDTH/10; i++)
+	{
+		transmitByte = 0xba;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xfb;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xaf;
+		SPI_MasterTransmit(transmitByte);
+	}
+	for(int i = 0; i < WIDTH/10; i++)
+	{
+		transmitByte = 0xfc;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0x2f;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xc2;
+		SPI_MasterTransmit(transmitByte);
+	}
+	
+}
+
+}
+
+void smileFace(void)
+{
+	uint8_t transmitByte = 0;
+	ioport_set_pin_level(TFT_DC, 0);
+	transmitByte = 0x2c;  // write command
+	SPI_MasterTransmit(transmitByte); // Send byte
+	ioport_set_pin_level(TFT_DC, 1);
+
+
+
+	for (int x = 0; x < LENGTH; x++) // once for every three bytes
+	{
+		transmitByte = 0x0f;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xf0;
+		SPI_MasterTransmit(transmitByte);
+		transmitByte = 0xff;
+		SPI_MasterTransmit(transmitByte);
+
+		for(int y = 0; y < WIDTH/2; y++)// each cycle puts out two pixels thus the "/2"
+		{
+			
+
+			if ( ((30 < x && x < 42) || (90 < x && x < 102)) && (4 < y && y < 14))
+			{
+				transmitByte = 0x33;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0xf3;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0x3f;
+				SPI_MasterTransmit(transmitByte);
+			}
+			else if ( ((60 < x && x < 72)) && (16 < y && y < 24))
+			{
+				transmitByte = 0x33;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0xf3;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0x3f;
+				SPI_MasterTransmit(transmitByte);
+			}
+			else if ( ((24 < x && x < 36) || (95 < x && x < 105)) && (26 < y && y <= 28))
+			{
+				transmitByte = 0x33;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0xf3;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0x3f;
+				SPI_MasterTransmit(transmitByte);
+			}
+			else if ( (24 < x && x < 105) && (28 < y && y < 36))
+			{
+				transmitByte = 0x33;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0xf3;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0x3f;
+				SPI_MasterTransmit(transmitByte);
+			}
+			else
+			{
+				transmitByte = 0x0f;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0xf0;
+				SPI_MasterTransmit(transmitByte);
+				transmitByte = 0xff;
+				SPI_MasterTransmit(transmitByte);
+			}		
+		}
+	}
+}
+
+// initializes the spi and sets up display
+void SPI_MasterInit(void)
+{
+	/* Set MOSI and SCK output, all others input */
+	DDRB = (1<<DDB3)|(1<<DDB5);//|(1<<DDB2); // modified to make SS output
+	
+	// To prevent it from getting pulled out of Master mode
+	ioport_set_pin_mode(SS_PIN, IOPORT_MODE_PULLUP);
+	
+	/* Enable SPI, Master, set clock rate fck/16 */
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+
 	PRR = 0x00;
+
+	uint8_t transmitByte = 0 ;
 
 	ioport_set_pin_dir(BACK_LIGHT, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_dir(TFT_DC, IOPORT_DIR_OUTPUT);
@@ -170,103 +317,15 @@ int main (void)
 
 	_delay_ms(500);
 	
-	ioport_set_pin_level(TFT_DC, 0);
-	transmitByte = 0x2c;  // write command
-	SPI_MasterTransmit(transmitByte); // Send byte
-	ioport_set_pin_level(TFT_DC, 1);
+}
+
+// from page 218 of data sheet
+void SPI_MasterTransmit(uint8_t cData)
+{
 	
-	// to fix rgb order
-	//transmitByte = 0xff;
-	//SPI_MasterTransmit(transmitByte);
-	
-	for (int i = 0; i < WIDTH*LENGTH; i++) // once for every three bytes
-	{
-		transmitByte = 0x00;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x00;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x00;
-		SPI_MasterTransmit(transmitByte);
-		//display[i*3    ] = 0xf0;
-		//display[i*3 + 1] = 0x0f;
-		//display[i*3 + 2] = 0x00;	
-	}
-	for (int i = 0; i < WIDTH*START_OFFSET; i++) // once for every three bytes
-	{
-		transmitByte = 0xff;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0xff;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0xff;
-		SPI_MasterTransmit(transmitByte);
-		//display[i*3    ] = 0xf0;
-		//display[i*3 + 1] = 0x0f;
-		//display[i*3 + 2] = 0x00;
-	}
-	//blue
-	for (int i = 0; i < WIDTH*3; i++) // once for every three bytes
-	{
-		transmitByte = 0xf1;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x1f;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x11;
-		SPI_MasterTransmit(transmitByte);
-		//display[i*3    ] = 0xf0;
-		//display[i*3 + 1] = 0x0f;
-		//display[i*3 + 2] = 0x00;
-	}
-	//green
-	for (int i = 0; i < WIDTH*3; i++) // once for every three bytes
-	{
-		transmitByte = 0x1f;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x11;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0xf1;
-		SPI_MasterTransmit(transmitByte);
-		//display[i*3    ] = 0xf0;
-		//display[i*3 + 1] = 0x0f;
-		//display[i*3 + 2] = 0x00;
-	}
-	//red
-	for (int i = 0; i < WIDTH*3; i++) // once for every three bytes
-	{
-		transmitByte = 0x11;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0xf1;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x1f;
-		SPI_MasterTransmit(transmitByte);
-		//display[i*3    ] = 0xf0;
-		//display[i*3 + 1] = 0x0f;
-		//display[i*3 + 2] = 0x00;
-	}
-	for (int i = 0; i < WIDTH*12; i++) // once for every three bytes
-	{
-		transmitByte = 0xFc;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0x2F;
-		SPI_MasterTransmit(transmitByte);
-		transmitByte = 0xc2;
-		SPI_MasterTransmit(transmitByte);
-		//display[i*3    ] = 0xf0;
-		//display[i*3 + 1] = 0x0f;
-		//display[i*3 + 2] = 0x00;
-	}
-	ioport_set_pin_level(TFT_DC, 0);
-	transmitByte = 0x13;
-	SPI_MasterTransmit(transmitByte);
-	ioport_set_pin_level(TFT_CS, 1);
-	while(1){
-		button_state = ioport_get_pin_level(GPIO_PUSH_BUTTON_0);
-		if(button_state){
-				//LED_Off(LED0);
-			}else{
-				//LED_On(LED0);
-				// Turns on back light :-)
-				ioport_set_pin_mode(BACK_LIGHT, IOPORT_MODE_PULLUP);
-			}
-		}
-	return 0;
+	/* Start transmission */
+	SPDR = cData;
+	/* Wait for transmission complete */
+	while(!(SPSR & (1<<SPIF)))
+	;
 }
