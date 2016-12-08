@@ -3675,6 +3675,115 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="GeekAmmo">
+<description>&lt;h3&gt;GeekAmmo  Library&lt;/h3&gt;
+
+These are parts used by the GeekAmmo company (now part of SparkFun Electronics)!
+
+ If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt;Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="7914G">
+<description>&lt;b&gt;Bourns 7914G 4 mm SMD Sealed Key Switch&lt;/b&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+http://www.bourns.com/data/global/pdfs/7914.pdf</description>
+<circle x="1.27" y="2.7432" radius="1" width="0.127" layer="21"/>
+<smd name="1" x="0" y="0" dx="1.27" dy="1.27" layer="1" rot="R90"/>
+<smd name="3" x="2.54" y="0" dx="1.27" dy="1.27" layer="1" rot="R90"/>
+<smd name="2" x="0" y="5.4864" dx="1.27" dy="1.27" layer="1" rot="R90"/>
+<smd name="4" x="2.54" y="5.4864" dx="1.27" dy="1.27" layer="1" rot="R90"/>
+<text x="-1.27" y="0" size="0.8128" layer="25" rot="R90">&gt;NAME</text>
+<text x="5.08" y="0" size="0.8128" layer="27" rot="R90">&gt;VALUE</text>
+</package>
+<package name="TAC-SWITCH-PTH">
+<wire x1="3.048" y1="1.016" x2="3.048" y2="2.54" width="0.2032" layer="51"/>
+<wire x1="3.048" y1="2.54" x2="2.54" y2="3.048" width="0.2032" layer="51"/>
+<wire x1="2.54" y1="-3.048" x2="3.048" y2="-2.54" width="0.2032" layer="51"/>
+<wire x1="3.048" y1="-2.54" x2="3.048" y2="-1.016" width="0.2032" layer="51"/>
+<wire x1="-2.54" y1="3.048" x2="-3.048" y2="2.54" width="0.2032" layer="51"/>
+<wire x1="-3.048" y1="2.54" x2="-3.048" y2="1.016" width="0.2032" layer="51"/>
+<wire x1="-2.54" y1="-3.048" x2="-3.048" y2="-2.54" width="0.2032" layer="51"/>
+<wire x1="-3.048" y1="-2.54" x2="-3.048" y2="-1.016" width="0.2032" layer="51"/>
+<wire x1="2.54" y1="-3.048" x2="2.159" y2="-3.048" width="0.2032" layer="51"/>
+<wire x1="-2.54" y1="-3.048" x2="-2.159" y2="-3.048" width="0.2032" layer="51"/>
+<wire x1="-2.54" y1="3.048" x2="-2.159" y2="3.048" width="0.2032" layer="51"/>
+<wire x1="2.54" y1="3.048" x2="2.159" y2="3.048" width="0.2032" layer="51"/>
+<wire x1="2.159" y1="3.048" x2="-2.159" y2="3.048" width="0.2032" layer="21"/>
+<wire x1="-2.159" y1="-3.048" x2="2.159" y2="-3.048" width="0.2032" layer="21"/>
+<wire x1="3.048" y1="0.998" x2="3.048" y2="-1.016" width="0.2032" layer="21"/>
+<wire x1="-3.048" y1="1.028" x2="-3.048" y2="-1.016" width="0.2032" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="0.508" width="0.2032" layer="51"/>
+<wire x1="-2.54" y1="-0.508" x2="-2.54" y2="-1.27" width="0.2032" layer="51"/>
+<wire x1="-2.54" y1="0.508" x2="-2.159" y2="-0.381" width="0.2032" layer="51"/>
+<circle x="0" y="0" radius="1.778" width="0.2032" layer="21"/>
+<pad name="1" x="-3.2512" y="2.2606" drill="1.016" diameter="1.524" shape="long"/>
+<pad name="2" x="3.2512" y="2.2606" drill="1.016" diameter="1.524" shape="long"/>
+<pad name="3" x="-3.2512" y="-2.2606" drill="1.016" diameter="1.524" shape="long"/>
+<pad name="4" x="3.2512" y="-2.2606" drill="1.016" diameter="1.524" shape="long"/>
+<text x="-2.54" y="3.81" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-5.08" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="TACTILE-SWITCH">
+<wire x1="1.905" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="4.445" x2="1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="4.445" x2="-1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="1.905" y1="4.445" x2="0" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0" y1="4.445" x2="-1.905" y2="4.445" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="0" y1="4.445" x2="0" y2="3.175" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="1.905" y2="1.27" width="0.254" layer="94"/>
+<circle x="-2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<circle x="2.54" y="0" radius="0.127" width="0.4064" layer="94"/>
+<text x="-4.064" y="5.588" size="1.778" layer="95">&gt;NAME</text>
+<text x="-4.318" y="-5.334" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
+<pin name="3" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="4" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="-5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="2"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TACTILE-SWITCH">
+<description>&lt;B&gt;Tactile Switch 4 Pins, SPST NO&lt;/B&gt;</description>
+<gates>
+<gate name="G$1" symbol="TACTILE-SWITCH" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-7914G" package="7914G">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-PTH" package="TAC-SWITCH-PTH">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3724,6 +3833,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="C6" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100n"/>
 <part name="SUPPLY7" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="PROGRAMMING_PINS" library="microbuilder" deviceset="HEADER-1X11" device="76MIL"/>
+<part name="U$1" library="GeekAmmo" deviceset="TACTILE-SWITCH" device="-PTH"/>
+<part name="SUPPLY10" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
+<part name="SUPPLY11" library="supply2" deviceset="GND" device=""/>
+<part name="U$2" library="GeekAmmo" deviceset="TACTILE-SWITCH" device="-PTH"/>
+<part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
+<part name="SUPPLY12" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
+<part name="SUPPLY16" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3734,7 +3851,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="-48.26" y1="172.72" x2="-48.26" y2="243.84" width="0.1524" layer="95"/>
 <text x="-15.24" y="236.22" size="1.778" layer="95">Power Supply - 3.3VDC regulated with switch</text>
 <text x="198.12" y="30.48" size="5.08" layer="95">FLASHY FASHION</text>
-<text x="266.7" y="10.16" size="1.778" layer="95">5</text>
 <text x="66.04" y="134.62" size="1.778" layer="95">Microprocessor</text>
 <text x="213.36" y="10.16" size="3.81" layer="95">Schematic</text>
 <text x="172.72" y="104.14" size="1.778" layer="95">RESET 5V</text>
@@ -3778,6 +3894,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="C6" gate="G$1" x="55.88" y="213.36"/>
 <instance part="SUPPLY7" gate="G$1" x="167.64" y="127"/>
 <instance part="PROGRAMMING_PINS" gate="G$1" x="223.52" y="109.22"/>
+<instance part="U$1" gate="G$1" x="0" y="83.82"/>
+<instance part="SUPPLY10" gate="G$1" x="12.7" y="99.06"/>
+<instance part="R4" gate="G$1" x="12.7" y="91.44" rot="R90"/>
+<instance part="SUPPLY11" gate="GND" x="-12.7" y="68.58"/>
+<instance part="U$2" gate="G$1" x="246.38" y="104.14" rot="MR0"/>
+<instance part="R5" gate="G$1" x="236.22" y="111.76" rot="R90"/>
+<instance part="SUPPLY12" gate="G$1" x="236.22" y="116.84"/>
+<instance part="SUPPLY16" gate="GND" x="251.46" y="93.98"/>
 </instances>
 <busses>
 </busses>
@@ -3919,6 +4043,24 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="40.64" y1="78.74" x2="40.64" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="SUPPLY15" gate="GND" pin="GND"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="83.82" x2="-12.7" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="SUPPLY11" gate="GND" pin="GND"/>
+<wire x1="-12.7" y1="83.82" x2="-12.7" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="2"/>
+<wire x1="-12.7" y1="81.28" x2="-12.7" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="81.28" x2="-12.7" y2="81.28" width="0.1524" layer="91"/>
+<junction x="-12.7" y="81.28"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="2"/>
+<pinref part="U$2" gate="G$1" pin="1"/>
+<wire x1="251.46" y1="101.6" x2="251.46" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="SUPPLY16" gate="GND" pin="GND"/>
+<wire x1="251.46" y1="101.6" x2="251.46" y2="96.52" width="0.1524" layer="91"/>
+<junction x="251.46" y="101.6"/>
+</segment>
 </net>
 <net name="CARDCS_5V" class="0">
 <segment>
@@ -3927,9 +4069,20 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U2" gate="A" pin="PD2"/>
 <pinref part="PROGRAMMING_PINS" gate="G$1" pin="10"/>
 <wire x1="195.58" y1="99.06" x2="91.44" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="99.06" x2="200.66" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="99.06" x2="195.58" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="99.06" x2="195.58" y2="99.06" width="0.1524" layer="91"/>
 <junction x="195.58" y="99.06"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="220.98" y1="99.06" x2="236.22" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="236.22" y1="99.06" x2="236.22" y2="101.6" width="0.1524" layer="91"/>
+<junction x="220.98" y="99.06"/>
+<pinref part="U$2" gate="G$1" pin="4"/>
+<pinref part="U$2" gate="G$1" pin="3"/>
+<junction x="241.3" y="104.14"/>
+<wire x1="236.22" y1="101.6" x2="236.22" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="104.14" x2="241.3" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="101.6" x2="236.22" y2="101.6" width="0.1524" layer="91"/>
+<junction x="241.3" y="101.6"/>
+<junction x="236.22" y="101.6"/>
 </segment>
 </net>
 <net name="LITE" class="0">
@@ -4071,6 +4224,15 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="200.66" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
 <junction x="195.58" y="119.38"/>
 </segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="SUPPLY10" gate="G$1" pin="VCC"/>
+<wire x1="12.7" y1="96.52" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="SUPPLY12" gate="G$1" pin="VCC"/>
+</segment>
 </net>
 <net name="N$6" class="0">
 <segment>
@@ -4105,6 +4267,22 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="200.66" y1="104.14" x2="220.98" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="104.14" x2="195.58" y2="104.14" width="0.1524" layer="91"/>
 <junction x="195.58" y="104.14"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="3"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="5.08" y1="83.82" x2="7.62" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="83.82" x2="12.7" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="83.82" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="4"/>
+<wire x1="5.08" y1="81.28" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="81.28" x2="7.62" y2="83.82" width="0.1524" layer="91"/>
+<junction x="7.62" y="83.82"/>
+<pinref part="U2" gate="A" pin="PB7"/>
+<wire x1="12.7" y1="83.82" x2="55.88" y2="83.82" width="0.1524" layer="91"/>
+<junction x="12.7" y="83.82"/>
 </segment>
 </net>
 </nets>
